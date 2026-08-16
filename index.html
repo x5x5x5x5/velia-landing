@@ -144,8 +144,18 @@ header.scrolled .nav{background:rgba(251,248,244,.88);box-shadow:var(--shadow)}
 .burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;color:var(--brown)}
 
 /* ---------- hero ---------- */
-.hero{padding:12rem 0 5rem}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5.5rem);align-items:center}
+.hero{position:relative;overflow:hidden;padding:14rem 0 7rem;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 55%}
+/* voile chaud : la colonne de texte reste lisible, le fond respire a droite */
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(100deg,rgba(251,248,244,.97) 0%,rgba(251,248,244,.93) 30%,rgba(251,248,244,.58) 56%,rgba(251,248,244,.22) 100%),
+    linear-gradient(0deg,var(--bone) 1%,transparent 28%);
+}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.64fr)}
 .hero h1{font-size:clamp(3.4rem,7.6vw,6.4rem);margin:1.4rem 0 0}
 .hero .lede{color:var(--taupe);max-width:38ch;margin:2rem 0 2.8rem;font-size:1.02rem;line-height:1.85}
 .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
@@ -156,33 +166,6 @@ header.scrolled .nav{background:rgba(251,248,244,.88);box-shadow:var(--shadow)}
 }
 .facts span{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe)}
 
-/* visuel hero : arche, comme les niches de l'institut */
-.hero-visual{position:relative}
-.frame{
-  position:relative;aspect-ratio:4/5;border-radius:var(--arch);overflow:hidden;
-  box-shadow:var(--shadow-lift);background:var(--sand);
-}
-.frame img{width:100%;height:100%;object-fit:cover}
-.frame::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(122,97,70,.06),transparent 40%,rgba(46,37,28,.16));
-}
-.frame-line{
-  position:absolute;inset:14px;border:1px solid rgba(251,248,244,.45);
-  border-radius:calc(150px - 14px) calc(150px - 14px) 16px 16px;pointer-events:none;z-index:2;
-}
-.tag{
-  position:absolute;z-index:3;color:var(--brown);
-  padding:.85rem 1.4rem;border-radius:999px;
-  font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
-  background:rgba(253,250,246,.82);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.8);box-shadow:var(--shadow);
-  animation:hover 9s ease-in-out infinite;
-}
-.tag-1{top:7%;right:-1.8rem}
-.tag-2{bottom:9%;left:-1.8rem;animation-delay:-4.5s}
-@keyframes hover{50%{transform:translateY(-9px)}}
 
 /* bandeau défilant */
 .strip{margin-top:5.5rem;padding:1.4rem 0;border-top:var(--rule);border-bottom:var(--rule);overflow:hidden;
@@ -304,6 +287,17 @@ section{padding:7.5rem 0;position:relative}
 .note{margin-top:3rem;font-size:.85rem;color:var(--taupe);max-width:60ch}
 
 /* ---------- expérience ---------- */
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:clamp(3rem,6vw,4.5rem)}
+.room figure{margin:0;overflow:hidden;border-radius:var(--r);box-shadow:var(--shadow);
+  transition:transform .7s cubic-bezier(.22,1,.36,1),box-shadow .7s ease}
+.room:hover figure{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+.room img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.room:hover img{transform:scale(1.04)}
+.room figcaption{
+  margin-top:1.1rem;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe);
+  display:flex;align-items:center;gap:.7rem;
+}
+.room figcaption::before{content:"";width:22px;height:1px;background:var(--beige)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3.5rem)}
 .step{
   padding:2.4rem 2rem;border-radius:var(--r);
@@ -373,9 +367,15 @@ footer .meta a:hover{color:var(--brown)}
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
-  .hero{padding-top:9.5rem}
-  .hero-grid{grid-template-columns:1fr;gap:3.5rem}
-  .hero-visual{max-width:400px;margin-inline:auto;width:100%}
+  .hero{padding:11rem 0 5rem}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-bg img{object-position:64% 50%}
+  .hero-bg::after{
+    background:
+      linear-gradient(180deg,rgba(251,248,244,.96) 0%,rgba(251,248,244,.9) 46%,rgba(251,248,244,.7) 70%,rgba(251,248,244,.92) 100%),
+      linear-gradient(0deg,var(--bone) 2%,transparent 24%);
+  }
+  .rooms{gap:1rem}
   .services{grid-template-columns:repeat(2,1fr)}
   .s1,.s2,.s3,.s4{grid-column:span 1}
   .card.dark{grid-column:span 2}
@@ -406,7 +406,8 @@ footer .meta a:hover{color:var(--brown)}
   .mark .sub::before,.mark .sub::after{width:10px}
 
   /* hiérarchie plutôt que deux boutons côte à côte */
-  .hero{padding-top:8rem}
+  .hero{padding:9.5rem 0 4rem}
+  .rooms{grid-template-columns:1fr;gap:1.6rem}
   .hero-cta{flex-direction:column;align-items:stretch;gap:1.2rem}
   .hero-cta .btn-main{width:100%;padding-block:1.2rem}
   .hero-cta .btn-line{
@@ -423,7 +424,6 @@ footer .meta a:hover{color:var(--brown)}
   .services{grid-template-columns:1fr}
   .card.dark{grid-column:span 1}
   .nav{padding-left:1.2rem}
-  .tag-1,.tag-2{display:none}
   .fab span{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -460,6 +460,9 @@ footer .meta a:hover{color:var(--brown)}
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="images/salon-accueil.jpg" alt="" width="1119" height="706" fetchpriority="high">
+  </div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -477,14 +480,6 @@ footer .meta a:hover{color:var(--brown)}
         </div>
       </div>
 
-      <div class="hero-visual rv">
-        <div class="frame">
-          <img src="images/institut.jpg" alt="Polaroids : portrait de Velia et sourcil redessiné" width="1206" height="1375">
-          <div class="frame-line"></div>
-        </div>
-        <span class="tag tag-1">Maquillage semi-permanent</span>
-        <span class="tag tag-2">Soins du visage</span>
-      </div>
     </div>
 
     <div class="strip rv"><div class="strip-track" id="strip"></div></div>
@@ -633,6 +628,21 @@ footer .meta a:hover{color:var(--brown)}
       <p class="eyebrow">La maison</p>
       <h2 class="display">Le temps de faire<br>les choses bien</h2>
       <p>Un cadre feutré, des techniques éprouvées et un déroulé identique pour chaque cliente.</p>
+    </div>
+
+    <div class="rooms">
+      <div class="room rv">
+        <figure>
+          <img src="images/salon-cabine-1.jpg" alt="Cabine de maquillage semi-permanent, lumière tamisée et table de soin" loading="lazy" decoding="async">
+          <figcaption>Cabine — maquillage semi-permanent</figcaption>
+        </figure>
+      </div>
+      <div class="room rv">
+        <figure>
+          <img src="images/salon-cabine-2.jpg" alt="Cabine de soins du visage avec fauteuil et appareillage" loading="lazy" decoding="async">
+          <figcaption>Cabine — soins du visage</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="steps">
