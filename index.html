@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VELIA — Brows &amp; Beauty · Auterive</title>
+<meta name="description" content="VELIA Brows & Beauty à Auterive — sourcils, regard, lèvres et soins du visage. Microblading, combo brows, lash lift, blush lips, hydraskin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@200..700&display=swap" rel="stylesheet">
+<style>
+/* ============ tokens ============ */
+:root{
+  --cream:#FFF7F2;
+  --cream-2:#FDEDE6;
+  --ink:#2A1720;
+  --ink-soft:#6B4E58;
+  --rose:#E79AA6;
+  --rose-deep:#C9677A;
+  --peach:#FFC7A8;
+  --lilac:#C7B4F2;
+  --mint:#A9DFD0;
+  --white:#fff;
+  --radius:28px;
+  --radius-lg:44px;
+  --shadow-soft:0 18px 50px -20px rgba(120,60,80,.28);
+  --shadow-lift:0 30px 70px -25px rgba(120,60,80,.42);
+  --maxw:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Outfit",system-ui,sans-serif;
+  font-weight:300;
+  font-size:clamp(15px,1.05vw,17px);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+/* grain overlay */
+body::after{
+  content:"";position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+.wrap{width:min(100% - 2.5rem,var(--maxw));margin-inline:auto}
+
+/* display type */
+.display{
+  font-family:"Fraunces",Georgia,serif;
+  font-weight:400;
+  font-variation-settings:"SOFT" 60,"WONK" 1,"opsz" 120;
+  line-height:.95;
+  letter-spacing:-.03em;
+}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+  font-weight:400;color:var(--rose-deep);
+}
+
+/* ============ aurora background ============ */
+.aurora{position:fixed;inset:-20vh -10vw;z-index:-2;filter:blur(70px);opacity:.85}
+.blob{position:absolute;border-radius:50%;mix-blend-mode:multiply;animation:float 22s ease-in-out infinite}
+.b1{width:46vw;height:46vw;left:-6vw;top:2vh;background:radial-gradient(circle at 30% 30%,#FFC9D6,transparent 68%)}
+.b2{width:40vw;height:40vw;right:-4vw;top:-4vh;background:radial-gradient(circle at 60% 40%,#FFDCC0,transparent 66%);animation-delay:-7s}
+.b3{width:38vw;height:38vw;left:28vw;top:38vh;background:radial-gradient(circle at 50% 50%,#DCD0FA,transparent 66%);animation-delay:-13s}
+.b4{width:34vw;height:34vw;right:6vw;top:62vh;background:radial-gradient(circle at 50% 50%,#C8EFE4,transparent 66%);animation-delay:-4s}
+@keyframes float{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  33%{transform:translate3d(4vw,-5vh,0) scale(1.12)}
+  66%{transform:translate3d(-3vw,4vh,0) scale(.94)}
+}
+
+/* ============ nav ============ */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 0;transition:padding .4s}
+header.scrolled{padding:.5rem 0}
+.nav{
+  display:flex;align-items:center;gap:1.5rem;
+  padding:.6rem .7rem .6rem 1.4rem;
+  border-radius:999px;
+  background:rgba(255,251,248,.62);
+  backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 10px 40px -22px rgba(120,60,80,.5);
+  transition:box-shadow .4s,background .4s;
+}
+header.scrolled .nav{box-shadow:var(--shadow-soft);background:rgba(255,251,248,.82)}
+.brand{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;letter-spacing:.22em;text-transform:uppercase}
+.brand small{display:block;font-family:"Outfit",sans-serif;font-size:.52rem;letter-spacing:.34em;color:var(--ink-soft);margin-top:-2px}
+.nav-links{display:flex;gap:.35rem;margin-left:auto}
+.nav-links a{
+  padding:.5rem .95rem;border-radius:999px;font-size:.86rem;color:var(--ink-soft);
+  transition:.28s;position:relative;
+}
+.nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.85)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.85rem 1.5rem;border-radius:999px;
+  font-size:.9rem;letter-spacing:.01em;font-weight:400;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,background .3s;
+  white-space:nowrap;
+}
+.btn-main{
+  background:linear-gradient(120deg,var(--ink),#59303F 60%,#7A3B4E);
+  color:#FFF3EE;box-shadow:0 14px 30px -14px rgba(60,20,35,.75);
+}
+.btn-main:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 22px 42px -16px rgba(60,20,35,.8)}
+.btn-ghost{border:1px solid rgba(42,23,32,.18);color:var(--ink);background:rgba(255,255,255,.5)}
+.btn-ghost:hover{transform:translateY(-3px);background:#fff;box-shadow:var(--shadow-soft)}
+.btn .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(169,223,208,.9);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(169,223,208,0)}100%{box-shadow:0 0 0 0 rgba(169,223,208,0)}}
+
+.burger{display:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;align-items:center;justify-content:center}
+
+/* ============ hero ============ */
+.hero{padding:11rem 0 4rem;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(3.2rem,8.2vw,7.2rem);margin:.8rem 0 0}
+.hero h1 em{
+  font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1;
+  background:linear-gradient(100deg,var(--rose-deep),#D98A6A 45%,var(--lilac));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lede{font-size:1.1rem;color:var(--ink-soft);max-width:34ch;margin:1.6rem 0 2.2rem}
+.hero-cta{display:flex;gap:.7rem;flex-wrap:wrap}
+.trust{display:flex;align-items:center;gap:1.3rem;margin-top:2.6rem;flex-wrap:wrap}
+.trust .stat b{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:500;display:block;line-height:1}
+.trust .stat span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.trust .sep{width:1px;height:30px;background:rgba(42,23,32,.14)}
+
+/* hero visual */
+.hero-visual{position:relative;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:visible}
+.card-photo{
+  position:absolute;inset:0;border-radius:var(--radius-lg);
+  background:
+    radial-gradient(120% 90% at 20% 10%,#FFE3D4,transparent 60%),
+    radial-gradient(100% 80% at 90% 80%,#F6C9D6,transparent 60%),
+    linear-gradient(160deg,#FFD9C6,#F3C4D4 55%,#DCCcF6);
+  box-shadow:var(--shadow-lift);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.6);
+}
+.card-photo::after{
+  content:"";position:absolute;inset:0;
+  background:conic-gradient(from 210deg at 60% 40%,transparent,rgba(255,255,255,.55),transparent 55%);
+  animation:sheen 9s linear infinite;
+}
+@keyframes sheen{to{transform:rotate(1turn)}}
+.arch{
+  position:absolute;inset:8%;border-radius:999px 999px 32px 32px;
+  border:1px dashed rgba(255,255,255,.75);
+}
+.mono-mark{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:"Fraunces",serif;font-size:clamp(4rem,11vw,8rem);font-weight:300;
+  font-variation-settings:"WONK" 1;color:rgba(255,255,255,.72);letter-spacing:.06em;
+  text-shadow:0 8px 30px rgba(180,100,120,.25);
+}
+.chip{
+  position:absolute;display:flex;align-items:center;gap:.5rem;
+  padding:.6rem 1rem;border-radius:999px;font-size:.78rem;
+  background:rgba(255,252,250,.78);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.85);box-shadow:var(--shadow-soft);
+  animation:bob 6s ease-in-out infinite;
+}
+.chip i{font-style:normal;font-size:.95rem}
+.chip-1{top:6%;right:-6%;animation-delay:-1s}
+.chip-2{bottom:16%;left:-9%;animation-delay:-3s}
+.chip-3{bottom:-3%;right:8%;animation-delay:-5s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+
+/* marquee */
+.marquee{
+  margin-top:4.5rem;padding:.9rem 0;overflow:hidden;
+  border-top:1px solid rgba(42,23,32,.1);border-bottom:1px solid rgba(42,23,32,.1);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.marquee-track{display:flex;gap:2.6rem;width:max-content;animation:scroll 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{
+  font-family:"Fraunces",serif;font-size:1.15rem;font-style:italic;
+  color:var(--ink-soft);display:flex;align-items:center;gap:2.6rem;white-space:nowrap;
+}
+.marquee span::after{content:"✿";font-style:normal;color:var(--rose);font-size:.8rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ============ sections ============ */
+section{padding:6.5rem 0;position:relative}
+.sec-head{max-width:52ch;margin-bottom:3.4rem}
+.sec-head h2{font-size:clamp(2.3rem,5.2vw,4rem);margin:.7rem 0 1rem;text-wrap:balance}
+.tile h3,.quote p{text-wrap:balance}
+.sec-head p{color:var(--ink-soft);margin:0}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem}
+.tile{
+  position:relative;overflow:hidden;padding:2rem;border-radius:var(--radius);
+  background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:var(--shadow-soft);
+  transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s;
+  min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;
+}
+.tile:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift)}
+.tile::before{
+  content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+  filter:blur(42px);opacity:.85;top:-70px;right:-50px;transition:transform .6s;
+}
+.tile:hover::before{transform:scale(1.35) translate(-10px,10px)}
+.t1{grid-column:span 3}
+.t1::before{background:#FFC6D3}
+.t2{grid-column:span 3}
+.t2::before{background:#FFD9B8}
+.t3{grid-column:span 2}
+.t3::before{background:#D6C8FA}
+.t4{grid-column:span 2}
+.t4::before{background:#B7E7DA}
+.t5{grid-column:span 2;background:linear-gradient(150deg,var(--ink),#5B3140);color:#FFF0EA;border-color:rgba(255,255,255,.15)}
+.t5::before{background:#C9677A;opacity:.55}
+.tile.t5 .tile-num{color:var(--peach)}
+.tile.t5 h3{color:#FFF3EE}
+.tile.t5 p{color:rgba(255,241,236,.88)}
+.tile-num{font-size:.7rem;letter-spacing:.28em;color:var(--rose-deep);position:relative}
+.tile h3{font-family:"Fraunces",serif;font-weight:400;font-size:1.65rem;margin:.7rem 0 .5rem;position:relative;letter-spacing:-.02em}
+.tile p{margin:0;font-size:.92rem;color:var(--ink-soft);position:relative}
+.tile .price-hint{margin-top:1rem;font-size:.8rem;letter-spacing:.06em;position:relative;opacity:.75}
+
+/* ============ pricing ============ */
+.tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.tab{
+  padding:.7rem 1.3rem;border-radius:999px;font-size:.88rem;color:var(--ink-soft);
+  background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);
+  transition:.32s cubic-bezier(.22,1,.36,1);
+}
+.tab:hover{transform:translateY(-2px);background:#fff}
+.tab.on{background:var(--ink);color:#FFF1EC;border-color:transparent;box-shadow:0 12px 26px -14px rgba(60,20,35,.8)}
+
+.panel{display:none;animation:fade .5s cubic-bezier(.22,1,.36,1)}
+.panel.on{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 3rem}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}}
+.row{
+  display:flex;align-items:baseline;gap:1rem;padding:1.15rem .6rem;
+  border-bottom:1px solid rgba(42,23,32,.09);transition:.3s;border-radius:14px;
+}
+.row:hover{background:rgba(255,255,255,.6);padding-inline:1.1rem}
+.row .name{font-size:1rem}
+.row .name small{display:block;font-size:.78rem;color:var(--ink-soft)}
+.row .lead{flex:1;border-bottom:1px dotted rgba(42,23,32,.22);transform:translateY(-4px)}
+.row .price{font-family:"Fraunces",serif;font-size:1.25rem;font-weight:500;white-space:nowrap}
+.row.hi .price{color:var(--rose-deep)}
+.pill-new{
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.2rem .5rem;
+  border-radius:999px;background:var(--mint);color:#1E4A40;margin-left:.5rem;vertical-align:middle;
+}
+.note{margin-top:2.4rem;font-size:.85rem;color:var(--ink-soft);display:flex;gap:.6rem;align-items:flex-start}
+
+/* ============ experience ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;counter-reset:s}
+.step{
+  padding:2.2rem 1.8rem;border-radius:var(--radius);position:relative;
+  background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8);
+  backdrop-filter:blur(12px);transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.step:hover{transform:translateY(-6px)}
+.step::before{
+  counter-increment:s;content:"0" counter(s);
+  font-family:"Fraunces",serif;font-size:3.4rem;font-weight:300;
+  color:transparent;-webkit-text-stroke:1px rgba(201,103,122,.5);
+  display:block;line-height:1;margin-bottom:1rem;
+}
+.step h4{font-family:"Fraunces",serif;font-weight:400;font-size:1.35rem;margin:0 0 .5rem}
+.step p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+
+/* quote */
+.quote{
+  margin-top:4rem;padding:3.5rem clamp(1.6rem,5vw,4rem);border-radius:var(--radius-lg);
+  background:linear-gradient(140deg,rgba(255,255,255,.75),rgba(255,236,228,.6));
+  border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow-soft);text-align:center;
+}
+.quote p{
+  font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.4rem,3.2vw,2.2rem);
+  line-height:1.3;margin:0 auto;max-width:22ch;letter-spacing:-.02em;
+}
+.quote .stars{color:var(--rose);letter-spacing:.3em;margin-bottom:1.2rem}
+.quote cite{display:block;margin-top:1.4rem;font-style:normal;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ============ contact ============ */
+.contact-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lift);
+}
+.c-left{background:linear-gradient(155deg,var(--ink),#54303E 55%,#7C4055);color:#FFF1EC;padding:clamp(2.2rem,4vw,3.6rem)}
+.c-left h2{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(2rem,4vw,3rem);margin:.6rem 0 1.2rem;letter-spacing:-.02em}
+.c-left .eyebrow{color:var(--peach)}
+.c-left p{color:rgba(255,241,236,.75);max-width:34ch}
+.c-left .btn-main{background:#FFF1EC;color:var(--ink);margin-top:1.4rem;box-shadow:0 16px 34px -16px rgba(0,0,0,.6)}
+.c-right{background:rgba(255,255,255,.65);backdrop-filter:blur(14px);padding:clamp(2.2rem,4vw,3.6rem);display:grid;gap:1.6rem;align-content:center}
+.info{display:flex;gap:1rem;align-items:flex-start}
+.info .ico{
+  flex:none;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:1.05rem;
+  background:linear-gradient(140deg,#FFE0D2,#FFD0DC);
+}
+.info b{display:block;font-weight:400;font-family:"Fraunces",serif;font-size:1.05rem}
+.info span{font-size:.9rem;color:var(--ink-soft)}
+.hours-row{display:flex;justify-content:space-between;font-size:.9rem;padding:.35rem 0;border-bottom:1px dashed rgba(42,23,32,.12)}
+.hours-row:last-child{border:0}
+.hours-row.closed{color:var(--ink-soft)}
+.open-badge{
+  display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;background:rgba(169,223,208,.4);color:#1E4A40;
+}
+
+/* ============ footer ============ */
+footer{padding:4rem 0 6rem;text-align:center}
+.foot-mark{font-family:"Fraunces",serif;font-size:clamp(3rem,13vw,9rem);letter-spacing:.1em;line-height:1;
+  background:linear-gradient(100deg,var(--rose-deep),#D98A6A 50%,var(--lilac));
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.9}
+footer .meta{font-size:.8rem;color:var(--ink-soft);margin-top:1.5rem}
+footer .meta a{border-bottom:1px solid rgba(42,23,32,.2)}
+
+/* floating whatsapp */
+.fab{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:120;
+  display:flex;align-items:center;gap:.6rem;padding:.9rem 1.3rem;border-radius:999px;
+  background:linear-gradient(120deg,#25D366,#128C7E);color:#fff;font-size:.9rem;
+  box-shadow:0 18px 40px -14px rgba(18,140,126,.75);
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.fab:hover{transform:translateY(-4px) scale(1.03)}
+
+/* reveal — only hidden when JS is running, so content never disappears */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ============ responsive ============ */
+@media (max-width:940px){
+  .hero-grid{grid-template-columns:1fr;gap:3.5rem}
+  .hero{padding-top:9rem}
+  .hero-visual{max-width:420px;margin-inline:auto;width:100%}
+  .panel.on{grid-template-columns:1fr;gap:0}
+  .steps{grid-template-columns:1fr}
+  .contact-card{grid-template-columns:1fr}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .t1,.t2,.t3,.t4,.t5{grid-column:span 1}
+  .t5{grid-column:span 2}
+}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;top:calc(100% + .6rem);right:0;left:0;
+    background:rgba(255,251,248,.92);backdrop-filter:blur(18px);padding:1rem;border-radius:26px;
+    border:1px solid rgba(255,255,255,.8);box-shadow:var(--shadow-soft);
+  }
+  .nav{position:relative}
+  .burger{display:flex}
+  .nav .btn-main{display:none}
+  .bento{grid-template-columns:1fr}
+  .t5{grid-column:span 1}
+  .chip-2{left:-4%}
+  .chip-1{right:-2%}
+  section{padding:4.5rem 0}
+  .fab span{display:none}
+  .fab{padding:1rem;font-size:1.2rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .js .rv{opacity:1;transform:none}
+}
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="aurora" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="blob b3"></div><div class="blob b4"></div>
+</div>
+
+<header id="hdr">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#top" class="brand">Velia<small>Brows &amp; Beauty</small></a>
+      <div class="nav-links" id="links">
+        <a href="#prestations">Prestations</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#experience">L'expérience</a>
+        <a href="#infos">Infos &amp; accès</a>
+      </div>
+      <a class="btn btn-main" href="https://wa.me/33629428854" target="_blank" rel="noopener"><span class="dot"></span>Réserver</a>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow rv">Auterive · 31190</p>
+        <h1 class="display rv">Un regard<br>qui vous <em>ressemble</em></h1>
+        <p class="lede rv">Sourcils, cils, lèvres et peau — sublimés main dans la main avec vous, dans un cocon calme et lumineux.</p>
+        <div class="hero-cta rv">
+          <a class="btn btn-main" href="https://wa.me/33629428854" target="_blank" rel="noopener"><span class="dot"></span>Prendre rendez-vous</a>
+          <a class="btn btn-ghost" href="#tarifs">Voir les tarifs ↓</a>
+        </div>
+        <div class="trust rv">
+          <div class="stat"><b>6j/7</b><span>9h — 19h</span></div>
+          <div class="sep"></div>
+          <div class="stat"><b>100%</b><span>sur-mesure</span></div>
+          <div class="sep"></div>
+          <div class="stat"><b>+18</b><span>prestations</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual rv">
+        <div class="card-photo">
+          <div class="arch"></div>
+          <div class="mono-mark">V</div>
+        </div>
+        <div class="chip chip-1"><i>✦</i> Microblading &amp; Combo</div>
+        <div class="chip chip-2"><i>♡</i> Korean Lash Lift</div>
+        <div class="chip chip-3"><i>✧</i> Soins Hydraskin</div>
+      </div>
+    </div>
+
+    <div class="marquee rv">
+      <div class="marquee-track" id="mq"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRESTATIONS ================= -->
+<section id="prestations">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Nos univers</p>
+      <h2 class="display">Quatre façons<br>de se sentir belle</h2>
+      <p>Chaque protocole est adapté à votre morphologie, votre peau et votre style de vie. Jamais de modèle unique.</p>
+    </div>
+
+    <div class="bento">
+      <article class="tile t1 rv">
+        <span class="tile-num">01 — SOURCILS</span>
+        <h3>Une ligne dessinée pour vous</h3>
+        <p>Restructuration, teinture, browlift, microblading, microshading et combo brows. Le tracé est validé ensemble avant la première aiguille.</p>
+        <span class="price-hint">à partir de 20 €</span>
+      </article>
+
+      <article class="tile t2 rv">
+        <span class="tile-num">02 — REGARD</span>
+        <h3>Des cils réveillés, sans extension</h3>
+        <p>Le Korean Lash Lift redresse et courbe votre cil naturel pendant 6 à 8 semaines. Avec teinture pour un effet mascara permanent.</p>
+        <span class="price-hint">à partir de 15 €</span>
+      </article>
+
+      <article class="tile t3 rv">
+        <span class="tile-num">03 — LÈVRES</span>
+        <h3>Blush Lips</h3>
+        <p>Une bouche repulpée d'une teinte fondue et naturelle, jour après jour.</p>
+        <span class="price-hint">à partir de 300 €</span>
+      </article>
+
+      <article class="tile t4 rv">
+        <span class="tile-num">04 — PEAU</span>
+        <h3>Soins visage</h3>
+        <p>Hydraskin, carboxythérapie, méso booster et protocole Inflacure peaux sensibles.</p>
+        <span class="price-hint">à partir de 60 €</span>
+      </article>
+
+      <article class="tile t5 rv">
+        <span class="tile-num">SUR RENDEZ-VOUS</span>
+        <h3>Un doute&nbsp;? On en parle.</h3>
+        <p>Diagnostic offert par WhatsApp : envoyez une photo, je vous dis ce qui vous ira.</p>
+        <a class="btn btn-ghost" style="margin-top:1.2rem;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#FFF0EA;align-self:flex-start" href="https://wa.me/33629428854" target="_blank" rel="noopener">Écrire à Velia →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TARIFS ================= -->
+<section id="tarifs">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Tarifs</p>
+      <h2 class="display">Tout est clair,<br>dès le départ</h2>
+      <p>Aucun supplément surprise. Le prix annoncé est le prix payé.</p>
+    </div>
+
+    <div class="tabs rv" id="tabs">
+      <button class="tab on" data-p="p1">Sourcils</button>
+      <button class="tab" data-p="p2">Retouches</button>
+      <button class="tab" data-p="p3">Cils</button>
+      <button class="tab" data-p="p4">Lèvres</button>
+      <button class="tab" data-p="p5">Soins visage</button>
+    </div>
+
+    <div class="panel on" id="p1">
+      <div class="row"><span class="name">Épilation &amp; restructuration <small>avec teinture</small></span><span class="lead"></span><span class="price">40 €</span></div>
+      <div class="row"><span class="name">Restructuration seule</span><span class="lead"></span><span class="price">20 €</span></div>
+      <div class="row"><span class="name">Teinture sourcils</span><span class="lead"></span><span class="price">15 €</span></div>
+      <div class="row"><span class="name">Browlift <small>selon formule</small></span><span class="lead"></span><span class="price">50 – 60 €</span></div>
+      <div class="row hi"><span class="name">Microblading <small>poil à poil, effet naturel</small></span><span class="lead"></span><span class="price">350 €</span></div>
+      <div class="row hi"><span class="name">Microshading <small>effet poudré</small></span><span class="lead"></span><span class="price">350 €</span></div>
+      <div class="row hi"><span class="name">Combo Brows <span class="pill-new">best-seller</span><small>poil à poil + poudré</small></span><span class="lead"></span><span class="price">400 €</span></div>
+    </div>
+
+    <div class="panel" id="p2">
+      <div class="row"><span class="name">Retouche 1 à 3 mois <small>incluse dans le protocole initial</small></span><span class="lead"></span><span class="price">80 €</span></div>
+      <div class="row"><span class="name">Retouche 6 à 8 mois</span><span class="lead"></span><span class="price">130 €</span></div>
+      <div class="row"><span class="name">Retouche 10 à 12 mois</span><span class="lead"></span><span class="price">170 €</span></div>
+      <div class="row"><span class="name">Retouche 12 à 18 mois</span><span class="lead"></span><span class="price">250 €</span></div>
+    </div>
+
+    <div class="panel" id="p3">
+      <div class="row hi"><span class="name">Korean Lash Lift <span class="pill-new">nouveau</span><small>tenue 6 à 8 semaines</small></span><span class="lead"></span><span class="price">55 €</span></div>
+      <div class="row"><span class="name">Lash Lift + teinture</span><span class="lead"></span><span class="price">60 €</span></div>
+      <div class="row"><span class="name">Teinture cils</span><span class="lead"></span><span class="price">15 €</span></div>
+    </div>
+
+    <div class="panel" id="p4">
+      <div class="row hi"><span class="name">Blush Lips <small>maquillage semi-permanent</small></span><span class="lead"></span><span class="price">300 €</span></div>
+      <div class="row"><span class="name">Retouche 1 à 3 mois</span><span class="lead"></span><span class="price">70 €</span></div>
+      <div class="row"><span class="name">Entretien annuel</span><span class="lead"></span><span class="price">170 €</span></div>
+    </div>
+
+    <div class="panel" id="p5">
+      <div class="row"><span class="name">Hydraskin <small>nettoyage en profondeur</small></span><span class="lead"></span><span class="price">80 €</span></div>
+      <div class="row"><span class="name">Hydraskin + Carboxythérapie</span><span class="lead"></span><span class="price">110 €</span></div>
+      <div class="row hi"><span class="name">Hydraskin + Méso Booster</span><span class="lead"></span><span class="price">130 €</span></div>
+      <div class="row"><span class="name">Inflacure <small>peaux sensibles &amp; réactives</small></span><span class="lead"></span><span class="price">60 €</span></div>
+    </div>
+
+    <p class="note rv"><span>✿</span> Les prestations de maquillage semi-permanent comprennent la consultation, le tracé et la première retouche. Un acompte est demandé à la réservation.</p>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">L'expérience Velia</p>
+      <h2 class="display">Chaque rendez-vous<br>est une parenthèse</h2>
+      <p>Un cadre raffiné et chaleureux, des techniques modernes et surtout : le temps de faire les choses bien.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step rv"><h4>On se parle</h4><p>Morphologie, teint, habitudes, envies. On dessine ensemble avant de commencer — vous validez tout.</p></div>
+      <div class="step rv"><h4>On réalise</h4><p>Matériel stérile à usage unique, pigments de qualité premium et un geste précis, sans précipitation.</p></div>
+      <div class="step rv"><h4>On accompagne</h4><p>Conseils de cicatrisation, suivi par message et retouche planifiée pour un résultat qui dure.</p></div>
+    </div>
+
+    <div class="quote rv">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="display">« Je ne me maquille plus les sourcils le matin. C'est le meilleur cadeau que je me suis fait. »</p>
+      <cite>— Cliente, Combo Brows</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INFOS ================= -->
+<section id="infos">
+  <div class="wrap">
+    <div class="contact-card rv">
+      <div class="c-left">
+        <p class="eyebrow">Réservation</p>
+        <h2>On se voit<br>bientôt&nbsp;?</h2>
+        <p>Le plus simple : un message WhatsApp. Je réponds personnellement et on trouve le créneau qui vous arrange.</p>
+        <a class="btn btn-main" href="https://wa.me/33629428854" target="_blank" rel="noopener">Réserver sur WhatsApp →</a>
+        <div style="margin-top:2rem"><span class="open-badge" id="openBadge">· Chargement</span></div>
+      </div>
+
+      <div class="c-right">
+        <div class="info">
+          <div class="ico">📍</div>
+          <div><b>L'institut</b><span>4 Impasse du Rouat<br>31190 Auterive</span></div>
+        </div>
+        <div class="info">
+          <div class="ico">☎</div>
+          <div><b>Téléphone</b><span><a href="tel:+33629428854">06 29 42 88 54</a></span></div>
+        </div>
+        <div class="info">
+          <div class="ico">🕰</div>
+          <div style="flex:1">
+            <b style="margin-bottom:.5rem">Horaires</b>
+            <div class="hours-row"><span>Lundi — Samedi</span><span>9h00 — 19h00</span></div>
+            <div class="hours-row closed"><span>Dimanche</span><span>Fermé</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-mark display">VELIA</div>
+    <p class="meta">
+      Brows &amp; Beauty · 4 Impasse du Rouat, 31190 Auterive · <a href="tel:+33629428854">06 29 42 88 54</a><br>
+      © <span id="yr"></span> Velia Brows &amp; Beauty — Révélez votre beauté avec élégance.
+    </p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/33629428854" target="_blank" rel="noopener" aria-label="Réserver sur WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+  <span>Réserver</span>
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* marquee content (duplicated for seamless loop) */
+const words = ['Microblading','Combo Brows','Korean Lash Lift','Blush Lips','Browlift','Hydraskin','Microshading','Teinture','Carboxythérapie'];
+const mq = document.getElementById('mq');
+const line = () => {
+  const s = document.createElement('span');
+  s.innerHTML = words.join('</span><span>');
+  return s;
+};
+mq.append(line(), line());
+
+/* header shadow */
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 24), {passive:true});
+
+/* burger */
+const links = document.getElementById('links');
+document.getElementById('burger').onclick = () => links.classList.toggle('open');
+links.onclick = e => { if (e.target.tagName === 'A') links.classList.remove('open'); };
+
+/* pricing tabs */
+document.getElementById('tabs').addEventListener('click', e => {
+  const t = e.target.closest('.tab');
+  if (!t) return;
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === t.dataset.p));
+});
+
+/* scroll reveal */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((en, i) => {
+    if (en.isIntersecting) {
+      en.target.style.transitionDelay = (i * 70) + 'ms';
+      en.target.classList.add('in');
+      io.unobserve(en.target);
+    }
+  });
+}, {threshold:.12, rootMargin:'0px 0px -60px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* open / closed badge (Europe/Paris business hours) */
+(function(){
+  const badge = document.getElementById('openBadge');
+  const now = new Date(new Date().toLocaleString('en-US', {timeZone:'Europe/Paris'}));
+  const d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
+  const open = d !== 0 && h >= 9 && h < 19;
+  badge.textContent = open ? '● Ouvert en ce moment' : '● Fermé — écrivez quand même !';
+  badge.style.background = open ? 'rgba(169,223,208,.35)' : 'rgba(255,255,255,.16)';
+  badge.style.color = open ? '#D5FFF2' : 'rgba(255,241,236,.8)';
+})();
+
+/* subtle parallax on hero visual */
+const hv = document.querySelector('.hero-visual');
+if (window.matchMedia('(pointer:fine)').matches) {
+  addEventListener('mousemove', e => {
+    const x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+    hv.style.transform = `translate3d(${x*14}px, ${y*14}px, 0) rotate(${x*1.2}deg)`;
+  }, {passive:true});
+}
+</script>
+</body>
+</html>
