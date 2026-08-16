@@ -6,6 +6,16 @@
 <title>VELIA — Brows &amp; Beauty · Auterive</title>
 <meta name="description" content="VELIA Brows & Beauty à Auterive — sourcils, regard, lèvres et soins du visage. Microblading, combo brows, lash lift, blush lips, hydraskin.">
 <meta name="theme-color" content="#FBF8F4">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="VELIA — Brows &amp; Beauty · Auterive">
+<meta property="og:description" content="Sourcils, cils, lèvres et soins du visage. Maquillage semi-permanent et prestations sur-mesure à Auterive.">
+<meta property="og:image" content="https://x5x5x5x5.github.io/velia-landing/images/og.jpg">
+<meta property="og:url" content="https://x5x5x5x5.github.io/velia-landing/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..600&family=Jost:wght@200..600&display=swap" rel="stylesheet">
@@ -338,8 +348,12 @@ section{padding:7.5rem 0;position:relative}
 
 /* ---------- pied ---------- */
 footer{padding:5rem 0;text-align:center;border-top:var(--rule)}
-footer .mark{margin-bottom:2rem}
-footer .mark .name{font-size:2.6rem}
+.emblem{
+  width:clamp(130px,16vw,168px);aspect-ratio:1;margin:0 auto 2.2rem;
+  border-radius:28px;overflow:hidden;box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.8);
+}
+.emblem img{width:100%;height:100%;object-fit:cover}
 footer .meta{font-size:.78rem;color:var(--taupe);line-height:2}
 footer .meta a:hover{color:var(--brown)}
 
@@ -661,10 +675,9 @@ footer .meta a:hover{color:var(--brown)}
 
 <footer>
   <div class="wrap">
-    <span class="mark">
-      <span class="name">Velia</span>
-      <span class="sub">Brows &amp; Beauty</span>
-    </span>
+    <div class="emblem">
+      <img src="images/logo.jpg" alt="Velia Brows &amp; Beauty" width="520" height="520" loading="lazy">
+    </div>
     <p class="meta">
       4 Impasse du Rouat, 31190 Auterive · <a href="tel:+33629428854">06 29 42 88 54</a><br>
       © <span id="yr"></span> Velia Brows &amp; Beauty
