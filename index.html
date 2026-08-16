@@ -153,20 +153,25 @@ header.scrolled .nav{box-shadow:var(--shadow-soft);background:rgba(255,251,248,.
 }
 .card-photo::after{
   content:"";position:absolute;inset:0;
-  background:conic-gradient(from 210deg at 60% 40%,transparent,rgba(255,255,255,.55),transparent 55%);
-  animation:sheen 9s linear infinite;
+  z-index:3;pointer-events:none;
+  background:conic-gradient(from 210deg at 60% 40%,transparent,rgba(255,255,255,.22),transparent 55%);
+  animation:sheen 14s linear infinite;
 }
 @keyframes sheen{to{transform:rotate(1turn)}}
 .arch{
   position:absolute;inset:8%;border-radius:999px 999px 32px 32px;
   border:1px dashed rgba(255,255,255,.75);
 }
-.mono-mark{
-  position:absolute;inset:0;display:grid;place-items:center;
-  font-family:"Fraunces",serif;font-size:clamp(4rem,11vw,8rem);font-weight:300;
-  font-variation-settings:"WONK" 1;color:rgba(255,255,255,.72);letter-spacing:.06em;
-  text-shadow:0 8px 30px rgba(180,100,120,.25);
+.card-photo img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.02);
 }
+.card-photo::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(190deg,rgba(255,214,196,.28),transparent 45%,rgba(201,103,122,.22));
+  mix-blend-mode:soft-light;
+}
+.card-photo .arch{z-index:2}
 .chip{
   position:absolute;display:flex;align-items:center;gap:.5rem;
   padding:.6rem 1rem;border-radius:999px;font-size:.78rem;
@@ -236,6 +241,46 @@ section{padding:6.5rem 0;position:relative}
 .tile h3{font-family:"Fraunces",serif;font-weight:400;font-size:1.65rem;margin:.7rem 0 .5rem;position:relative;letter-spacing:-.02em}
 .tile p{margin:0;font-size:.92rem;color:var(--ink-soft);position:relative}
 .tile .price-hint{margin-top:1rem;font-size:.8rem;letter-spacing:.06em;position:relative;opacity:.75}
+
+/* ============ galerie ============ */
+.gallery{
+  display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:min(23vw,240px);gap:1rem;
+}
+.shot{
+  position:relative;overflow:hidden;border-radius:var(--radius);margin:0;
+  box-shadow:var(--shadow-soft);border:1px solid rgba(255,255,255,.7);
+  cursor:zoom-in;background:var(--cream-2);
+  transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s;
+}
+.shot:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.shot:hover img{transform:scale(1.06)}
+.shot figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:2.2rem 1.2rem .95rem;
+  font-size:.82rem;color:#fff;letter-spacing:.02em;
+  background:linear-gradient(transparent,rgba(48,22,32,.72));
+  transform:translateY(6px);opacity:.92;transition:.45s cubic-bezier(.22,1,.36,1);
+}
+.shot:hover figcaption{transform:none;opacity:1}
+.shot figcaption b{display:block;font-family:"Fraunces",serif;font-weight:400;font-size:1.05rem}
+.g-a{grid-column:span 2;grid-row:span 2}
+.g-b{grid-column:span 1;grid-row:span 2}
+.g-c,.g-d{grid-column:span 1;grid-row:span 1}
+
+/* lightbox */
+.lb{
+  position:fixed;inset:0;z-index:500;display:none;place-items:center;padding:clamp(1rem,4vw,3rem);
+  background:rgba(40,18,26,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.lb.on{display:grid;animation:fade .35s ease}
+.lb img{max-width:100%;max-height:82vh;border-radius:22px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.lb-cap{color:#FFF1EC;text-align:center;margin-top:1rem;font-size:.9rem;letter-spacing:.04em}
+.lb-close{
+  position:absolute;top:1.2rem;right:1.2rem;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;font-size:1.3rem;display:grid;place-items:center;
+  transition:.3s;
+}
+.lb-close:hover{background:rgba(255,255,255,.28);transform:rotate(90deg)}
 
 /* ============ pricing ============ */
 .tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2.4rem}
@@ -355,6 +400,10 @@ footer .meta a{border-bottom:1px solid rgba(42,23,32,.2)}
   .bento{grid-template-columns:repeat(2,1fr)}
   .t1,.t2,.t3,.t4,.t5{grid-column:span 1}
   .t5{grid-column:span 2}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:min(38vw,260px)}
+  .g-a{grid-column:span 2;grid-row:span 2}
+  .g-b{grid-column:span 1;grid-row:span 2}
+  .g-c,.g-d{grid-column:span 1;grid-row:span 1}
 }
 @media (max-width:720px){
   .nav-links{display:none}
@@ -395,6 +444,7 @@ footer .meta a{border-bottom:1px solid rgba(42,23,32,.2)}
       <a href="#top" class="brand">Velia<small>Brows &amp; Beauty</small></a>
       <div class="nav-links" id="links">
         <a href="#prestations">Prestations</a>
+        <a href="#galerie">Réalisations</a>
         <a href="#tarifs">Tarifs</a>
         <a href="#experience">L'expérience</a>
         <a href="#infos">Infos &amp; accès</a>
@@ -430,8 +480,8 @@ footer .meta a{border-bottom:1px solid rgba(42,23,32,.2)}
 
       <div class="hero-visual rv">
         <div class="card-photo">
+          <img src="images/institut.jpg" alt="Polaroids de Velia et d'un sourcil redessiné" width="1206" height="1375">
           <div class="arch"></div>
-          <div class="mono-mark">V</div>
         </div>
         <div class="chip chip-1"><i>✦</i> Microblading &amp; Combo</div>
         <div class="chip chip-2"><i>♡</i> Korean Lash Lift</div>
@@ -489,6 +539,36 @@ footer .meta a{border-bottom:1px solid rgba(42,23,32,.2)}
         <p>Diagnostic offert par WhatsApp : envoyez une photo, je vous dis ce qui vous ira.</p>
         <a class="btn btn-ghost" style="margin-top:1.2rem;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#FFF0EA;align-self:flex-start" href="https://wa.me/33629428854" target="_blank" rel="noopener">Écrire à Velia →</a>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIE ================= -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Réalisations</p>
+      <h2 class="display">Le travail<br>parle de lui-même</h2>
+      <p>Des résultats réels, photographiés à l'institut — sans filtre et sans retouche.</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot g-a rv" tabindex="0">
+        <img src="images/institut.jpg" alt="Polaroids : portrait de Velia et sourcil redessiné" loading="lazy" decoding="async">
+        <figcaption><b>L'univers Velia</b>Sourcils redessinés</figcaption>
+      </figure>
+      <figure class="shot g-b rv" tabindex="0">
+        <img src="images/sourcils.jpg" alt="Sourcils redessinés et structurés en cours de soin" loading="lazy" decoding="async">
+        <figcaption><b>Sourcils</b>Structure &amp; densité</figcaption>
+      </figure>
+      <figure class="shot g-c rv" tabindex="0">
+        <img src="images/levres-1.jpg" alt="Résultat Blush Lips, bouche repulpée et teintée" loading="lazy" decoding="async">
+        <figcaption><b>Blush Lips</b>Teinte fondue</figcaption>
+      </figure>
+      <figure class="shot g-d rv" tabindex="0">
+        <img src="images/levres-2.jpg" alt="Résultat Blush Lips, effet naturel repulpé" loading="lazy" decoding="async">
+        <figcaption><b>Blush Lips</b>Effet naturel</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -619,6 +699,14 @@ footer .meta a{border-bottom:1px solid rgba(42,23,32,.2)}
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <div>
+    <img id="lbImg" src="" alt="">
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
 <a class="fab" href="https://wa.me/33629428854" target="_blank" rel="noopener" aria-label="Réserver sur WhatsApp">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
   <span>Réserver</span>
@@ -653,6 +741,45 @@ document.getElementById('tabs').addEventListener('click', e => {
   document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
   document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === t.dataset.p));
 });
+
+/* lightbox */
+(function(){
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'),
+        lbCap = document.getElementById('lbCap'), shots = [...document.querySelectorAll('.shot')];
+  let last = null, idx = 0;
+
+  const open = (fig) => {
+    idx = shots.indexOf(fig);
+    const img = fig.querySelector('img');
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbCap.textContent = fig.querySelector('figcaption').textContent;
+    lb.classList.add('on');
+    last = document.activeElement;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  };
+  const close = () => {
+    lb.classList.remove('on');
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  };
+  const step = (d) => open(shots[(idx + d + shots.length) % shots.length]);
+
+  shots.forEach(f => {
+    f.addEventListener('click', () => open(f));
+    f.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(f); }
+    });
+  });
+  document.getElementById('lbClose').onclick = close;
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.parentElement === lb) close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') step(1);
+    if (e.key === 'ArrowLeft') step(-1);
+  });
+})();
 
 /* scroll reveal */
 const io = new IntersectionObserver((entries) => {
