@@ -95,6 +95,7 @@ body::after{
 .mark .sub{
   display:flex;align-items:center;gap:.5rem;margin-top:.28rem;
   font-size:.53rem;letter-spacing:.34em;text-transform:uppercase;color:var(--taupe);
+  white-space:nowrap;
 }
 .mark .sub::before,.mark .sub::after{content:"";width:16px;height:1px;background:currentColor;opacity:.7}
 
@@ -387,13 +388,36 @@ footer .meta a:hover{color:var(--brown)}
 @media (max-width:720px){
   .nav-links{display:none}
   .nav-links.open{
-    display:flex;flex-direction:column;gap:1.4rem;position:absolute;top:100%;left:0;right:0;
-    background:var(--bone);padding:2rem 1.5rem;border-top:var(--rule);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:1.5rem;position:absolute;top:calc(100% + .7rem);left:0;right:0;
+    background:rgba(251,248,244,.94);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    padding:1.8rem 1.7rem;border-radius:26px;
+    border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow-lift);
   }
+  .nav-links.open a{font-size:.74rem}
   header{position:fixed}
   .nav{position:relative}
   .burger{display:flex;margin-left:auto}
-  .nav .btn-main{display:none}
+
+  /* un seul appel à l'action sur mobile : le bouton flottant suffit */
+  .nav .btn{display:none}
+  .mark .name{font-size:1.5rem}
+  .mark .sub{font-size:.48rem;letter-spacing:.26em;margin-top:.2rem}
+  .mark .sub::before,.mark .sub::after{width:10px}
+
+  /* hiérarchie plutôt que deux boutons côte à côte */
+  .hero{padding-top:8rem}
+  .hero-cta{flex-direction:column;align-items:stretch;gap:1.2rem}
+  .hero-cta .btn-main{width:100%;padding-block:1.2rem}
+  .hero-cta .btn-line{
+    border:0;padding:0;color:var(--brown);gap:.7rem;
+    justify-content:flex-start;letter-spacing:.18em;
+  }
+  .hero-cta .btn-line::after{content:"↓";font-size:.9rem;transform:translateY(-1px)}
+  .hero-cta .btn-line:hover,.hero-cta .btn-line:active{background:none;color:var(--espresso);transform:none}
+  .facts{gap:1.8rem 2.4rem;margin-top:2.8rem}
+
+  .fab{right:1.1rem;bottom:1.1rem;width:56px;height:56px;padding:0;justify-content:center}
   section{padding:5rem 0}
   .tabs{gap:.5rem}
   .services{grid-template-columns:1fr}
@@ -401,7 +425,6 @@ footer .meta a:hover{color:var(--brown)}
   .nav{padding-left:1.2rem}
   .tag-1,.tag-2{display:none}
   .fab span{display:none}
-  .fab{padding:1.1rem}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
