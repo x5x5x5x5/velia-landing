@@ -3,443 +3,309 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VELIA — Brows &amp; Beauty · Auterive</title>
-<meta name="description" content="VELIA Brows & Beauty à Auterive — sourcils, regard, lèvres et soins du visage. Microblading, combo brows, lash lift, blush lips, hydraskin.">
-<meta name="theme-color" content="#FBF8F4">
+<title>Velia — Institut de beauté &amp; épilation laser · Auterive</title>
+<meta name="description" content="Velia, institut de beauté à Auterive : épilation laser femmes et hommes avec forfaits 8 séances à −10&nbsp;%, browlift, microblading, combo brows, Blush Lips et soins du visage.">
+<meta name="theme-color" content="#F7F3EE">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="VELIA — Brows &amp; Beauty · Auterive">
-<meta property="og:description" content="Sourcils, cils, lèvres et soins du visage. Maquillage semi-permanent et prestations sur-mesure à Auterive.">
+<meta property="og:title" content="Velia — Institut de beauté &amp; épilation laser · Auterive">
+<meta property="og:description" content="Épilation laser, sourcils, lèvres et soins du visage à Auterive. Forfaits 8 séances à −10&nbsp;%.">
 <meta property="og:image" content="https://x5x5x5x5.github.io/velia-landing/images/og.jpg">
 <meta property="og:url" content="https://x5x5x5x5.github.io/velia-landing/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..600&family=Jost:wght@200..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..600;1,300..500&family=Jost:wght@300..500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   VELIA — palette beige / brun / blanc
+   VELIA — direction épurée : papier, brun du logo, filets fins
    ============================================================ */
 :root{
-  --bone:#FBF8F4;      /* blanc cassé, fond principal */
-  --sand:#F3ECE2;      /* sections alternées */
-  --beige:#E4D8C8;     /* aplats, filets */
-  --taupe:#B3A18B;     /* texte secondaire, filets */
-  --brown:#7A6146;     /* brun du logo, accent */
-  --espresso:#3D3125;  /* texte principal */
-  --deep:#2E251C;      /* aplats sombres */
-  --white:#fff;
-
-  --arch:150px 150px 28px 28px; /* motif arche des niches de l'institut */
-  --r:26px;                     /* rondeur des cartes */
-  --r-lg:40px;
-  --shadow:0 20px 50px -26px rgba(90,72,54,.34);
-  --shadow-lift:0 34px 78px -30px rgba(90,72,54,.46);
-  --maxw:1200px;
-  --rule:1px solid rgba(122,97,70,.16);
+  --paper:#F7F3EE;   /* fond principal */
+  --sand:#EDE5DB;    /* sections alternées, teinte du logo */
+  --ink:#3A2E26;     /* texte principal */
+  --brown:#6F5A45;   /* brun du logo */
+  --muted:#9A8877;   /* texte secondaire */
+  --line:rgba(58,46,38,.14);
+  --dark:#3A2E26;
+  --maxw:1180px;
+  --serif:"Cormorant Garamond",Didot,Georgia,serif;
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{
-  margin:0;background:var(--bone);color:var(--espresso);
+  margin:0;background:var(--paper);color:var(--ink);
   font-family:"Jost",system-ui,sans-serif;font-weight:300;
-  font-size:clamp(15px,1.02vw,16.5px);line-height:1.75;
+  font-size:clamp(15px,1vw,16px);line-height:1.8;
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-::selection{background:var(--beige);color:var(--espresso)}
-
-/* texture plâtre, très légère */
-body::after{
-  content:"";position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.28;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply;
-}
-/* lumière chaude diffuse, dans l'esprit des éclairages indirects de l'institut */
-.wash{position:fixed;inset:-15vh -10vw;z-index:-1;pointer-events:none;filter:blur(60px);opacity:.9}
-.wash i{position:absolute;border-radius:50%;display:block;mix-blend-mode:multiply;animation:drift 26s ease-in-out infinite}
-.wash .w1{width:46vw;height:46vw;left:-6vw;top:0;background:radial-gradient(circle at 35% 35%,#EFE3D2,transparent 68%)}
-.wash .w2{width:40vw;height:40vw;right:-4vw;top:6vh;background:radial-gradient(circle at 60% 40%,#E7DAC7,transparent 66%);animation-delay:-9s}
-.wash .w3{width:38vw;height:38vw;left:32vw;top:52vh;background:radial-gradient(circle at 50% 50%,#F0E7DA,transparent 66%);animation-delay:-16s}
-@keyframes drift{
-  0%,100%{transform:translate3d(0,0,0) scale(1)}
-  33%{transform:translate3d(3vw,-4vh,0) scale(1.1)}
-  66%{transform:translate3d(-2vw,3vh,0) scale(.95)}
-}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;padding:0}
+::selection{background:var(--sand)}
+:focus-visible{outline:1px solid var(--brown);outline-offset:4px}
 
 .wrap{width:min(100% - 2.5rem,var(--maxw));margin-inline:auto}
 
 /* ---------- typographie ---------- */
-.display{
-  font-family:"Cormorant Garamond",Didot,Georgia,serif;
-  font-weight:300;line-height:1.06;letter-spacing:-.005em;text-wrap:balance;
-}
-.display em{font-style:italic;font-weight:300;color:var(--brown)}
+.svc .n,.pillar b,.step .n,.lr .f,.row .price{font-variant-numeric:lining-nums tabular-nums}
+.serif{font-family:var(--serif);font-variant-numeric:lining-nums;font-weight:300;line-height:1.08;letter-spacing:-.005em;text-wrap:balance}
+.serif em{font-style:italic}
 .eyebrow{
-  font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;
-  font-weight:400;color:var(--taupe);margin:0;
+  margin:0;font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;font-weight:400;color:var(--muted);
 }
+h2.serif{font-size:clamp(2.3rem,4.4vw,3.6rem);margin:1.1rem 0 0}
+.lead{color:var(--muted);max-width:48ch;margin:1.4rem 0 0}
 
-/* ---------- signature / logo ---------- */
-.mark{display:inline-flex;flex-direction:column;align-items:center;line-height:1}
-.mark .name{
-  font-family:"Cormorant Garamond",serif;font-weight:400;
-  font-size:1.75rem;letter-spacing:.02em;color:var(--brown);
-}
-.mark .sub{
-  display:flex;align-items:center;gap:.5rem;margin-top:.28rem;
-  font-size:.53rem;letter-spacing:.34em;text-transform:uppercase;color:var(--taupe);
-  white-space:nowrap;
-}
-.mark .sub::before,.mark .sub::after{content:"";width:16px;height:1px;background:currentColor;opacity:.7}
-
-/* ---------- boutons ---------- */
+/* ---------- liens d'action ---------- */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
-  padding:1rem 1.9rem;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
-  font-weight:400;border-radius:999px;transition:background .45s ease,color .45s ease,border-color .45s ease,transform .45s ease;
-  white-space:nowrap;
+  display:inline-flex;align-items:center;justify-content:center;gap:.7rem;
+  padding:1.05rem 2.1rem;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;
+  border:1px solid var(--ink);color:var(--ink);white-space:nowrap;
+  transition:background .4s ease,color .4s ease,border-color .4s ease;
 }
-.btn-main{background:var(--brown);color:#FBF6EF;border:1px solid var(--brown)}
-.btn-main:hover{background:var(--deep);border-color:var(--deep);transform:translateY(-2px)}
-.btn-line{border:1px solid rgba(122,97,70,.35);color:var(--brown)}
-.btn-line:hover{background:var(--brown);color:#FBF6EF;border-color:var(--brown);transform:translateY(-2px)}
-.btn-light{border:1px solid rgba(251,246,239,.4);color:#FBF6EF}
-.btn-light:hover{background:#FBF6EF;color:var(--deep)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.fill{background:var(--ink);color:var(--paper)}
+.btn.fill:hover{background:var(--brown);border-color:var(--brown)}
+.btn.light{border-color:rgba(247,243,238,.5);color:var(--paper)}
+.btn.light:hover{background:var(--paper);color:var(--ink)}
+.link{
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;
+  border-bottom:1px solid currentColor;padding-bottom:.25rem;transition:color .4s;
+}
+.link:hover{color:var(--brown)}
 
-/* ---------- navigation ---------- */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1.4rem 0;transition:padding .5s ease,background .5s ease,box-shadow .5s ease;
+/* ---------- bandeau offre ---------- */
+.ticker{background:var(--dark);color:var(--paper);overflow:hidden;height:36px;display:flex;align-items:center}
+.ticker-track{display:flex;width:max-content;animation:slide 40s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{
+  display:flex;align-items:center;gap:2.4rem;padding-right:2.4rem;white-space:nowrap;
+  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;
 }
-header.scrolled{padding:.6rem 0}
-.nav{
-  display:flex;align-items:center;gap:2rem;
-  padding:.7rem .8rem .7rem 1.8rem;border-radius:999px;
-  background:rgba(251,248,244,.62);
-  backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
-  border:1px solid rgba(255,255,255,.65);
-  box-shadow:0 10px 36px -22px rgba(90,72,54,.5);
-  transition:background .5s ease,box-shadow .5s ease;
-}
-header.scrolled .nav{background:rgba(251,248,244,.88);box-shadow:var(--shadow)}
-.nav-links{display:flex;gap:2.1rem;margin-left:auto}
-.nav-links a{
-  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--espresso);
-  opacity:.75;position:relative;padding:.3rem 0;transition:opacity .4s;
-}
-.nav-links a::after{
-  content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
-  background:var(--brown);transition:right .5s cubic-bezier(.22,1,.36,1);
-}
-.nav-links a:hover{opacity:1}
-.nav-links a:hover::after{right:0}
-.nav .btn{padding:.8rem 1.5rem}
-.burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;color:var(--brown)}
-
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding:14rem 0 7rem;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 55%}
-/* voile chaud : la colonne de texte reste lisible, le fond respire a droite */
-.hero-bg::after{
-  content:"";position:absolute;inset:0;
-  background:
-    linear-gradient(100deg,rgba(251,248,244,.97) 0%,rgba(251,248,244,.93) 30%,rgba(251,248,244,.58) 56%,rgba(251,248,244,.22) 100%),
-    linear-gradient(0deg,var(--bone) 1%,transparent 28%);
-}
-.hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.64fr)}
-.hero h1{font-size:clamp(3.4rem,7.6vw,6.4rem);margin:1.4rem 0 0}
-.hero .lede{color:var(--taupe);max-width:38ch;margin:2rem 0 2.8rem;font-size:1.02rem;line-height:1.85}
-.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
-.facts{display:flex;gap:2.6rem;margin-top:3.4rem;padding-top:2rem;border-top:var(--rule);flex-wrap:wrap}
-.facts b{
-  display:block;font-family:"Cormorant Garamond",serif;font-weight:400;
-  font-size:1.35rem;line-height:1.2;color:var(--brown);
-}
-.facts span{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe)}
-
-
-/* bandeau défilant */
-.strip{margin-top:5.5rem;padding:1.4rem 0;border-top:var(--rule);border-bottom:var(--rule);overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
-}
-.strip-track{display:flex;width:max-content;animation:slide 48s linear infinite}
-.strip:hover .strip-track{animation-play-state:paused}
-.strip i{
-  font-style:normal;display:flex;align-items:center;gap:3.2rem;padding-right:3.2rem;
-  font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe);white-space:nowrap;
-}
-.strip i::after{content:"";width:3px;height:3px;border-radius:50%;background:var(--beige)}
+.ticker span::after{content:"";width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.5}
 @keyframes slide{to{transform:translateX(-50%)}}
 
+/* ---------- en-tête ---------- */
+header{
+  position:sticky;top:0;z-index:100;background:rgba(247,243,238,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid transparent;transition:border-color .4s ease;
+}
+header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:2.6rem;height:76px}
+.logo{font-family:var(--serif);font-weight:400;font-size:2rem;letter-spacing:.06em;color:var(--brown);line-height:1}
+.nav-links{display:flex;gap:2.2rem;margin-left:auto}
+.nav-links a{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);opacity:.7;transition:opacity .3s}
+.nav-links a:hover{opacity:1}
+.nav .btn{padding:.8rem 1.5rem}
+.burger{display:none;margin-left:auto;width:40px;height:40px;align-items:center;justify-content:center}
+.burger i,.burger i::before,.burger i::after{display:block;width:22px;height:1px;background:var(--ink);position:relative;transition:transform .3s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0}
+.burger i::before{top:-7px}.burger i::after{top:7px}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(4.5rem,9vw,7.5rem) 0 0;text-align:center}
+.hero h1{font-size:clamp(3rem,7.4vw,6.2rem);margin:1.6rem auto 0;max-width:14ch}
+.hero .lead{margin:1.8rem auto 0;max-width:44ch}
+.hero-cta{display:flex;gap:2rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:2.8rem}
+.hero-img{margin-top:clamp(3.5rem,7vw,5.5rem);aspect-ratio:16/7;overflow:hidden;background:var(--sand)}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+
 /* ---------- sections ---------- */
-section{padding:7.5rem 0;position:relative}
+section{padding:clamp(5rem,10vw,8.5rem) 0}
 .alt{background:var(--sand)}
-.sec-head{max-width:44ch;margin-bottom:4rem}
-.sec-head h2{font-size:clamp(2.4rem,4.6vw,3.9rem);margin:1rem 0 1.2rem}
-.sec-head p{color:var(--taupe);margin:0;max-width:46ch}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:2rem 5rem;align-items:end;margin-bottom:clamp(3rem,6vw,4.5rem)}
+.head .lead{margin:0}
+
+/* ---------- institut ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:2rem 5rem;align-items:start}
+.about p{margin:0 0 1.2rem;max-width:52ch}
+.about p:last-child{margin-bottom:0}
+.about .sign{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--brown);margin-top:1.8rem}
 
 /* ---------- prestations ---------- */
-.services{display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem}
-.card{
-  position:relative;overflow:hidden;border-radius:var(--r);
-  padding:clamp(2rem,3.4vw,2.9rem);
-  background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:var(--shadow);
-  display:flex;flex-direction:column;min-height:270px;
-  transition:transform .6s cubic-bezier(.22,1,.36,1),box-shadow .6s ease;
+.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.svc{padding:2.2rem 2rem 0 0;display:flex;flex-direction:column}
+.svc+.svc{padding-left:2rem;border-left:1px solid var(--line)}
+.svc .n{font-family:var(--serif);font-size:.95rem;color:var(--muted)}
+.svc h3{font-family:var(--serif);font-weight:300;font-size:1.9rem;line-height:1.15;margin:1.4rem 0 .8rem}
+.svc p{margin:0;color:var(--muted);font-size:.93rem}
+.svc .from{margin-top:1.6rem;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brown)}
+
+/* ---------- laser ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:clamp(3rem,6vw,4.5rem)}
+.pillar{padding:2rem 2rem 2rem 0}
+.pillar+.pillar{padding-left:2rem;border-left:1px solid var(--line)}
+.pillar b{display:block;font-family:var(--serif);font-weight:300;font-size:2.4rem;line-height:1;color:var(--brown)}
+.pillar span{display:block;margin-top:.9rem;font-size:.92rem;color:var(--ink)}
+.pillar small{display:block;color:var(--muted);font-size:.85rem;line-height:1.6;margin-top:.3rem}
+
+.switch{display:inline-flex;border:1px solid var(--ink);margin-bottom:2.4rem}
+.switch button{padding:.8rem 1.9rem;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;transition:background .3s,color .3s}
+.switch button.on{background:var(--ink);color:var(--paper)}
+
+.lcols,.lr{display:grid;grid-template-columns:1fr 8rem 13rem;gap:1rem;align-items:baseline}
+.lcols{padding:0 0 .9rem;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.lcols span:not(:first-child),.lr .u,.lr .f{text-align:right}
+.lz{display:none}
+.lz.on{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0}}
+details{border-top:1px solid var(--line)}
+.lz details:last-child{border-bottom:1px solid var(--line)}
+summary{
+  list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:1rem;padding:1.4rem 0;
+  font-family:var(--serif);font-size:1.6rem;font-weight:300;
 }
-.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift)}
-.card::before{
-  content:"";position:absolute;top:-80px;right:-60px;width:240px;height:240px;
-  border-radius:50%;filter:blur(46px);opacity:.7;transition:transform .8s cubic-bezier(.22,1,.36,1);
+summary::-webkit-details-marker{display:none}
+summary span{font-family:"Jost",sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+summary::after{content:"+";margin-left:auto;font-family:"Jost",sans-serif;font-size:1.3rem;font-weight:300;color:var(--brown);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+.lt{padding:0 0 1.4rem}
+.lr{padding:.8rem 0;border-top:1px dotted var(--line)}
+.lr:first-child{border-top:0}
+.lr .z{font-size:.97rem}
+.lr .u{font-variant-numeric:lining-nums tabular-nums;color:var(--muted)}
+.lr .f{font-family:var(--serif);font-size:1.3rem;color:var(--brown);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.lr .f s{font-family:"Jost",sans-serif;font-size:.8rem;color:var(--muted);margin-right:.8rem;text-decoration-thickness:1px}
+.lnote{margin-top:2.2rem;font-size:.85rem;color:var(--muted);max-width:70ch}
+.lcta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:2.4rem}
+
+/* ---------- tarifs beauté ---------- */
+.tabs{display:flex;gap:2.2rem;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:1rem}
+.tab{
+  padding:0 0 1rem;margin-bottom:-1px;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid transparent;transition:color .3s,border-color .3s;
 }
-.card:hover::before{transform:scale(1.3) translate(-12px,12px)}
-.card>*{position:relative}
-.s1{grid-column:span 3}
-.s1::before{background:#EADBC6}
-.s2{grid-column:span 3}
-.s2::before{background:#E5D6C0}
-.s3{grid-column:span 2}
-.s3::before{background:#EFE0CE}
-.s4{grid-column:span 2}
-.s4::before{background:#E3D7C6}
-.card.dark{grid-column:span 2}
-.card.dark::before{background:#7A6146;opacity:.5}
-.card .label{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe)}
-.card h3{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(1.7rem,2.6vw,2.2rem);margin:1.1rem 0 .9rem;line-height:1.15;text-wrap:balance}
-.card p{margin:0;color:var(--taupe);font-size:.95rem;max-width:42ch}
-.card .from{
-  margin-top:auto;padding-top:1.8rem;font-size:.65rem;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--brown);display:flex;align-items:center;gap:.7rem;
-}
-.card .from::before{content:"";width:26px;height:1px;background:var(--beige)}
-.card.dark{background:var(--deep);color:#F4EDE3;border-color:rgba(255,255,255,.12)}
-.card.dark .label{color:var(--taupe)}
-.card.dark h3{color:#FBF6EF}
-.card.dark p{color:rgba(244,237,227,.72);max-width:52ch}
-.card.dark .btn{align-self:flex-start;margin-top:2rem}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{display:none}
+.panel.on{display:grid;grid-template-columns:1fr 1fr;gap:0 5rem;animation:fade .5s ease}
+.row{display:flex;align-items:baseline;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.row .name{font-size:.97rem}
+.row .name small{display:block;font-size:.8rem;color:var(--muted)}
+.row .dots{flex:1}
+.row .price{font-family:var(--serif);font-size:1.35rem;color:var(--brown);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.note{margin-top:2.4rem;font-size:.85rem;color:var(--muted);max-width:64ch}
 
 /* ---------- galerie ---------- */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:min(22vw,230px);gap:1.2rem}
-.shot{position:relative;overflow:hidden;margin:0;cursor:zoom-in;background:var(--beige);
-  border-radius:var(--r);box-shadow:var(--shadow);
-  transition:transform .6s cubic-bezier(.22,1,.36,1),box-shadow .6s ease}
-.shot:hover{transform:translateY(-7px);box-shadow:var(--shadow-lift)}
-.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.22,1,.36,1)}
-.shot:hover img{transform:scale(1.05)}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,min(22vw,250px));gap:1rem}
+.shot{margin:0;position:relative;overflow:hidden;cursor:zoom-in;background:var(--sand)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.shot:hover img{transform:scale(1.04)}
 .shot figcaption{
-  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:3rem 1.4rem 1.2rem;
-  background:linear-gradient(transparent,rgba(46,37,28,.78));color:#FBF6EF;
+  position:absolute;left:1rem;bottom:1rem;padding:.45rem .8rem;background:rgba(247,243,238,.92);
+  font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;
 }
-.shot figcaption b{
-  display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.25rem;line-height:1.2;
-}
-.shot figcaption span{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;opacity:.8}
-.g-a{grid-column:span 2;grid-row:span 2}
-.g-b{grid-column:span 1;grid-row:span 2}
-.g-a{border-radius:var(--arch)}
+.g-a{grid-row:span 2}
+.g-b{grid-row:span 2}
 
-/* visionneuse */
-.lb{position:fixed;inset:0;z-index:500;display:none;place-items:center;padding:clamp(1rem,5vw,3.5rem);
-  background:rgba(46,37,28,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.lb.on{display:grid;animation:fade .4s ease}
-.lb img{max-width:100%;max-height:80vh;border-radius:var(--r);box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
-.lb-cap{color:#F4EDE3;text-align:center;margin-top:1.2rem;font-size:.65rem;letter-spacing:.26em;text-transform:uppercase}
-.lb-close{position:absolute;top:1.5rem;right:1.5rem;width:46px;height:46px;border-radius:50%;color:#F4EDE3;
-  border:1px solid rgba(244,237,227,.3);transition:.4s}
-.lb-close:hover{background:rgba(244,237,227,.12)}
-@keyframes fade{from{opacity:0}}
+.lb{position:fixed;inset:0;z-index:500;display:none;place-items:center;padding:clamp(1rem,5vw,3.5rem);background:rgba(58,46,38,.94)}
+.lb.on{display:grid;animation:fade .3s ease}
+.lb img{max-width:100%;max-height:80vh}
+.lb-cap{color:var(--paper);text-align:center;margin-top:1.2rem;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase}
+.lb-close{position:absolute;top:1.4rem;right:1.4rem;width:44px;height:44px;color:var(--paper);font-size:1.1rem}
 
-/* ---------- tarifs ---------- */
-.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.6rem}
-.tab{
-  padding:.75rem 1.4rem;border-radius:999px;
-  font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);
-  background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);
-  transition:transform .45s cubic-bezier(.22,1,.36,1),background .45s,color .45s,box-shadow .45s;
-}
-.tab:hover{transform:translateY(-2px);color:var(--espresso);background:#fff}
-.tab.on{background:var(--brown);color:#FBF6EF;border-color:transparent;box-shadow:0 12px 26px -14px rgba(90,72,54,.7)}
-.panel{display:none}
-.panel.on{display:grid;grid-template-columns:1fr 1fr;gap:0 4rem;animation:rise .55s cubic-bezier(.22,1,.36,1)}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}}
-.row{display:flex;align-items:baseline;gap:1.2rem;padding:1.35rem .6rem;border-bottom:var(--rule);
-  border-radius:16px;transition:background .4s ease,padding .4s ease}
-.row:hover{background:rgba(255,255,255,.6);padding-inline:1.1rem}
-.row .name{font-size:.98rem}
-.row .name small{display:block;font-size:.78rem;color:var(--taupe);letter-spacing:.01em}
-.row .dots{flex:1;border-bottom:1px dotted rgba(122,97,70,.28);transform:translateY(-4px)}
-.row .price{font-family:"Cormorant Garamond",serif;font-size:1.35rem;font-weight:400;
-  white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--brown)}
-.sig{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);
-  border:1px solid rgba(122,97,70,.24);padding:.18rem .5rem;margin-left:.6rem;white-space:nowrap}
-.note{margin-top:3rem;font-size:.85rem;color:var(--taupe);max-width:60ch}
+/* ---------- maison ---------- */
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:clamp(3.5rem,7vw,5rem)}
+.rooms figure{margin:0}
+.rooms img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.rooms figcaption{margin-top:.9rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.step{padding:2.2rem 2rem 0 0}
+.step+.step{padding-left:2rem;border-left:1px solid var(--line)}
+.step .n{font-family:var(--serif);color:var(--muted)}
+.step h3{font-family:var(--serif);font-weight:300;font-size:1.8rem;margin:1rem 0 .6rem}
+.step p{margin:0;color:var(--muted);font-size:.93rem}
 
-/* ---------- expérience ---------- */
-.rooms{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:clamp(3rem,6vw,4.5rem)}
-.room figure{margin:0;overflow:hidden;border-radius:var(--r);box-shadow:var(--shadow);
-  transition:transform .7s cubic-bezier(.22,1,.36,1),box-shadow .7s ease}
-.room:hover figure{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
-.room img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
-.room:hover img{transform:scale(1.04)}
-.room figcaption{
-  margin-top:1.1rem;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe);
-  display:flex;align-items:center;gap:.7rem;
-}
-.room figcaption::before{content:"";width:22px;height:1px;background:var(--beige)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3.5rem)}
-.step{
-  padding:2.4rem 2rem;border-radius:var(--r);
-  background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.85);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--shadow);
-  transition:transform .6s cubic-bezier(.22,1,.36,1);
-}
-.step:hover{transform:translateY(-6px)}
-.step .num{font-family:"Cormorant Garamond",serif;font-size:.85rem;letter-spacing:.3em;color:var(--taupe)}
-.step h4{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:1.75rem;margin:.9rem 0 .7rem}
-.step p{margin:0;color:var(--taupe);font-size:.93rem}
-
-.credo{
-  margin-top:5rem;text-align:center;padding:clamp(3rem,6vw,4.5rem) 2rem;border-radius:var(--r-lg);
-  background:linear-gradient(150deg,rgba(255,255,255,.72),rgba(243,236,226,.6));
-  border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);
-}
-.credo p{
-  font-family:"Cormorant Garamond",serif;font-weight:300;font-style:italic;
-  font-size:clamp(1.9rem,4.2vw,3.1rem);line-height:1.25;margin:0 auto;max-width:20ch;
-  color:var(--brown);text-wrap:balance;
-}
-.credo .rule{width:1px;height:56px;background:var(--beige);margin:0 auto 2.2rem}
-
-/* ---------- infos ---------- */
-.contact{display:grid;grid-template-columns:1.05fr .95fr;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift)}
-.c-dark{background:var(--deep);color:#F4EDE3;padding:clamp(2.5rem,5vw,4.5rem);display:flex;flex-direction:column;justify-content:center}
-.c-dark h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(2.2rem,4vw,3.4rem);margin:1rem 0 1.4rem;line-height:1.1}
-.c-dark p{color:rgba(244,237,227,.7);max-width:36ch;margin:0}
-.c-dark .eyebrow{color:var(--taupe)}
-.c-dark .btn{align-self:flex-start;margin-top:2.4rem}
-.c-light{background:var(--white);padding:clamp(2.5rem,5vw,4.5rem);display:grid;gap:2.4rem;align-content:center}
-.info{display:flex;gap:1.3rem;align-items:flex-start}
-.info svg{flex:none;width:20px;height:20px;stroke:var(--brown);fill:none;stroke-width:1.1;margin-top:.35rem}
-.info .k{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe);display:block;margin-bottom:.4rem}
-.info .v{font-size:.98rem;line-height:1.7}
-.hours{display:flex;justify-content:space-between;gap:2rem;font-size:.93rem;padding:.3rem 0}
-.hours+.hours{border-top:1px dotted rgba(122,97,70,.22)}
-.hours.off{color:var(--taupe)}
-.state{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.4rem;
-  font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe)}
+/* ---------- contact ---------- */
+.contact{background:var(--dark);color:var(--paper)}
+.contact .eyebrow{color:rgba(247,243,238,.55)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem 5rem}
+.contact h2{color:var(--paper)}
+.contact .lead{color:rgba(247,243,238,.7)}
+.contact .acts{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:2.6rem}
+.contact .acts .btn.fill{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.contact .acts .btn.fill:hover{background:transparent;color:var(--paper)}
+.infos{display:grid;gap:2rem;align-content:end}
+.info .k{display:block;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(247,243,238,.55);margin-bottom:.4rem}
+.info .v{font-size:1rem}
+.info a:hover{color:var(--sand)}
+.hours{display:flex;justify-content:space-between;gap:2rem;font-size:.95rem;padding:.35rem 0;border-bottom:1px solid rgba(247,243,238,.12)}
+.hours.off{color:rgba(247,243,238,.55)}
+.state{display:inline-flex;align-items:center;gap:.6rem;margin-top:1rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(247,243,238,.6)}
 .state::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
 
 /* ---------- pied ---------- */
-footer{padding:2.1rem 0;border-top:var(--rule)}
-.foot{display:flex;align-items:center;gap:1.6rem 2.4rem;flex-wrap:wrap}
-.foot-mark{display:flex;align-items:center;gap:.85rem}
-.emblem{
-  width:42px;height:42px;flex:none;border-radius:12px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.8);box-shadow:0 8px 20px -12px rgba(90,72,54,.5);
-}
-.emblem img{width:100%;height:100%;object-fit:cover}
-.foot-name{
-  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--taupe);line-height:1.9;
-}
-.foot-name b{
-  display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.15rem;
-  letter-spacing:.04em;text-transform:none;color:var(--brown);line-height:1;
-}
-.foot-links{display:flex;gap:1.6rem;margin-left:auto;flex-wrap:wrap}
-.foot-links a{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);transition:color .4s}
-.foot-links a:hover{color:var(--brown)}
-.foot-meta{font-size:.68rem;letter-spacing:.06em;color:var(--taupe)}
-.foot-meta a:hover{color:var(--brown)}
-
-/* bouton flottant */
-.fab{
-  position:fixed;right:1.6rem;bottom:1.6rem;z-index:120;display:flex;align-items:center;gap:.7rem;
-  padding:1rem 1.6rem;border-radius:999px;background:var(--brown);color:#FBF6EF;box-shadow:var(--shadow-lift);
-  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;transition:background .45s ease,transform .45s cubic-bezier(.22,1,.36,1);
-}
-.fab:hover{background:var(--deep);transform:translateY(-4px)}
+footer{padding:2rem 0;border-top:1px solid var(--line)}
+.foot{display:flex;align-items:center;gap:1.2rem 2.4rem;flex-wrap:wrap}
+.foot .logo{font-size:1.5rem}
+.foot-links{display:flex;gap:1.8rem;margin-left:auto;flex-wrap:wrap}
+.foot-links a,.foot-meta{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.foot-links a:hover{color:var(--ink)}
+.foot-meta{margin:0}
 
 /* apparitions */
-.js .rv{opacity:0;transform:translateY(20px);transition:opacity 1.1s cubic-bezier(.22,1,.36,1),transform 1.1s cubic-bezier(.22,1,.36,1)}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
 .js .rv.in{opacity:1;transform:none}
-:focus-visible{outline:1px solid var(--brown);outline-offset:4px}
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
-  .hero{padding:11rem 0 5rem}
-  .hero-grid{grid-template-columns:1fr}
-  .hero-bg img{object-position:64% 50%}
-  .hero-bg::after{
-    background:
-      linear-gradient(180deg,rgba(251,248,244,.96) 0%,rgba(251,248,244,.9) 46%,rgba(251,248,244,.7) 70%,rgba(251,248,244,.92) 100%),
-      linear-gradient(0deg,var(--bone) 2%,transparent 24%);
-  }
-  .rooms{gap:1rem}
-  .services{grid-template-columns:repeat(2,1fr)}
-  .s1,.s2,.s3,.s4{grid-column:span 1}
-  .card.dark{grid-column:span 2}
-  .panel.on{grid-template-columns:1fr;gap:0}
-  .steps{grid-template-columns:1fr;gap:2.2rem}
-  .contact{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:min(38vw,240px)}
-  .g-a{grid-column:span 2;grid-row:span 2}
+  .head,.about,.contact-grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .svc:nth-child(3){padding-left:0;border-left:0}
+  .svc:nth-child(n+3){margin-top:2.4rem;border-top:1px solid var(--line)}
+  .panel.on{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:min(60vw,360px) min(40vw,240px) min(40vw,240px)}
+  .g-a{grid-column:span 2;grid-row:auto}
+  .g-b{grid-row:span 2}
 }
 @media (max-width:720px){
-  .nav-links{display:none}
-  .nav-links.open{
-    display:flex;flex-direction:column;gap:1.5rem;position:absolute;top:calc(100% + .7rem);left:0;right:0;
-    background:rgba(251,248,244,.94);
-    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-    padding:1.8rem 1.7rem;border-radius:26px;
-    border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow-lift);
-  }
-  .nav-links.open a{font-size:.74rem}
-  header{position:fixed}
-  .nav{position:relative}
-  .burger{display:flex;margin-left:auto}
-
-  /* un seul appel à l'action sur mobile : le bouton flottant suffit */
+  html{scroll-padding-top:64px}
+  .nav{height:64px}
+  .logo{font-size:1.7rem}
   .nav .btn{display:none}
-  .mark .name{font-size:1.5rem}
-  .mark .sub{font-size:.48rem;letter-spacing:.26em;margin-top:.2rem}
-  .mark .sub::before,.mark .sub::after{width:10px}
-
-  /* hiérarchie plutôt que deux boutons côte à côte */
-  .hero{padding:9.5rem 0 4rem}
-  .rooms{grid-template-columns:1fr;gap:1.6rem}
-  .hero-cta{flex-direction:column;align-items:stretch;gap:1.2rem}
-  .hero-cta .btn-main{width:100%;padding-block:1.2rem}
-  .hero-cta .btn-line{
-    border:0;padding:0;color:var(--brown);gap:.7rem;
-    justify-content:flex-start;letter-spacing:.18em;
+  .burger{display:flex}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:1.4rem;
+    padding:1.8rem 1.25rem 2rem;background:var(--paper);border-bottom:1px solid var(--line);
   }
-  .hero-cta .btn-line::after{content:"↓";font-size:.9rem;transform:translateY(-1px)}
-  .hero-cta .btn-line:hover,.hero-cta .btn-line:active{background:none;color:var(--espresso);transform:none}
-  .facts{gap:1.8rem 2.4rem;margin-top:2.8rem}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:.74rem;opacity:1}
+  .nav-links .m{display:block;margin-top:.4rem;color:var(--brown)}
+  .hero-img{aspect-ratio:4/3}
+  .hero-cta{flex-direction:column;gap:1.4rem}
+  .hero-cta .btn,.lcta .btn,.acts .btn{width:100%}
+  .btn{white-space:normal;text-align:center}
 
-  .fab{right:1.1rem;bottom:1.1rem;width:56px;height:56px;padding:0;justify-content:center}
-  section{padding:5rem 0}
-  .tabs{gap:.5rem}
-  .services{grid-template-columns:1fr}
-  .card.dark{grid-column:span 1}
-  .nav{padding-left:1.2rem}
-  .fab span{display:none}
-  .foot{gap:1.2rem;flex-direction:column;align-items:flex-start}
+  .services,.pillars,.steps{grid-template-columns:1fr}
+  .svc,.svc+.svc,.pillar,.pillar+.pillar,.step,.step+.step{padding:1.8rem 0;border-left:0}
+  .svc+.svc,.pillar+.pillar,.step+.step{border-top:1px solid var(--line)}
+  .svc:nth-child(n+3){margin-top:0}
+
+  .switch{display:flex}
+  .switch button{flex:1;padding-inline:1rem}
+  .lcols{display:none}
+  .lr{grid-template-columns:1fr auto;gap:.2rem 1rem;padding:.95rem 0}
+  .lr .z{grid-column:1/-1}
+  .lr .u,.lr .f{text-align:left}
+  .lr .f{text-align:right}
+  .lr .u::before{content:"Séance ";font-size:.78rem}
+  .lr .f s{display:none}
+  .lr .f::before{content:"8 séances ";font-family:"Jost",sans-serif;font-size:.78rem;color:var(--muted)}
+  summary{font-size:1.4rem}
+
+  .tabs{gap:1.4rem}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:72vw 52vw 52vw;gap:.6rem}
+  .rooms{grid-template-columns:1fr;gap:1.8rem}
+  .foot{flex-direction:column;align-items:flex-start}
   .foot-links{margin-left:0;gap:1.2rem}
-  .foot-meta{font-size:.64rem}
 }
+@media (min-width:721px){.nav-links .m{display:none}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
   .js .rv{opacity:1;transform:none}
@@ -448,24 +314,25 @@ footer{padding:2.1rem 0;border-top:var(--rule)}
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
-<div class="wash" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>
+
+<div class="ticker" id="ticker" aria-label="Offre de lancement">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
 
 <header id="hdr">
   <div class="wrap">
     <nav class="nav">
-      <a href="#top" class="mark" aria-label="Velia Brows &amp; Beauty">
-        <span class="name">Velia</span>
-        <span class="sub">Brows &amp; Beauty</span>
-      </a>
+      <a href="#top" class="logo" aria-label="Velia, retour en haut">Velia</a>
       <div class="nav-links" id="links">
-        <a href="#prestations">Prestations</a>
+        <a href="#laser">Épilation laser</a>
+        <a href="#tarifs">Beauté</a>
         <a href="#galerie">Réalisations</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#maison">La maison</a>
-        <a href="#infos">Nous trouver</a>
+        <a href="#maison">L'institut</a>
+        <a href="#contact">Contact</a>
+        <a class="m" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver sur Planity</a>
       </div>
-      <a class="btn btn-line" href="https://wa.me/33629428854" target="_blank" rel="noopener">Rendez-vous</a>
-      <button class="burger" id="burger" aria-label="Menu">☰</button>
+      <a class="btn" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i></button>
     </nav>
   </div>
 </header>
@@ -474,245 +341,371 @@ footer{padding:2.1rem 0;border-top:var(--rule)}
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="images/salon-accueil.jpg" alt="" width="1119" height="706" fetchpriority="high">
-  </div>
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow rv">Institut de beauté — Auterive</p>
-        <h1 class="display rv">L'art du<br><em>regard</em></h1>
-        <p class="lede rv">Sourcils, cils, lèvres et peau. Des gestes précis, des résultats naturels, dans un écrin feutré où le temps ralentit.</p>
-        <div class="hero-cta rv">
-          <a class="btn btn-main" href="https://wa.me/33629428854" target="_blank" rel="noopener">Prendre rendez-vous</a>
-          <a class="btn btn-line" href="#prestations">Découvrir</a>
-        </div>
-        <div class="facts rv">
-          <div><b>6j / 7</b><span>9h — 19h</span></div>
-          <div><b>Sur-mesure</b><span>Chaque protocole</span></div>
-          <div><b>Auterive</b><span>Haute-Garonne</span></div>
-        </div>
-      </div>
-
+    <p class="eyebrow rv">Institut de beauté — Auterive</p>
+    <h1 class="serif rv">Épilation laser <em>&amp;</em> beauté du regard</h1>
+    <p class="lead rv">Une peau lisse, des sourcils dessinés avec justesse, des lèvres ravivées. Des prestations personnalisées, dans un cadre doux et apaisant.</p>
+    <div class="hero-cta rv">
+      <a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Prendre rendez-vous</a>
+      <a class="link" href="#laser">Forfaits laser −10&nbsp;%</a>
     </div>
+  </div>
+  <div class="wrap hero-img rv">
+    <img src="images/salon-accueil.jpg" alt="L'accueil de l'institut Velia à Auterive" width="1119" height="706" fetchpriority="high">
+  </div>
+</section>
 
-    <div class="strip rv"><div class="strip-track" id="strip"></div></div>
+<!-- ===================== INSTITUT ===================== -->
+<section id="institut">
+  <div class="wrap about">
+    <div class="rv">
+      <p class="eyebrow">L'institut</p>
+      <h2 class="serif">Expertise, élégance<br>et bien-être</h2>
+    </div>
+    <div class="rv">
+      <p>Passionnée par l'univers de la beauté, Olivia vous accueille chez Velia, à Auterive, pour des prestations pensées pour révéler votre beauté naturelle.</p>
+      <p>Chaque rendez-vous commence par l'écoute : vos envies, votre peau, votre morphologie. Le protocole est ensuite adapté à vous, réalisé avec soin et sans précipitation.</p>
+      <p class="sign">Olivia</p>
+    </div>
   </div>
 </section>
 
 <!-- ===================== PRESTATIONS ===================== -->
 <section id="prestations" class="alt">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">Prestations</p>
-      <h2 class="display">Quatre savoir-faire,<br>une même exigence</h2>
-      <p>Chaque protocole est adapté à votre morphologie, votre carnation et votre mode de vie.</p>
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Prestations</p>
+        <h2 class="serif">Quatre savoir-faire</h2>
+      </div>
+      <p class="lead">Du laser au maquillage semi-permanent, chaque prestation est adaptée à votre peau et au résultat souhaité.</p>
     </div>
-
     <div class="services">
-      <article class="card s1 rv">
-        <span class="label">Sourcils</span>
-        <h3>Le trait juste</h3>
-        <p>Restructuration, teinture, browlift, microblading, microshading et combo brows. La forme est dessinée puis validée avec vous avant le premier geste.</p>
-        <span class="from">à partir de 20 €</span>
+      <article class="svc rv">
+        <span class="n">01</span>
+        <h3>Épilation laser</h3>
+        <p>Femmes et hommes : visage, aisselles, bras, jambes, maillot, dos et bien d'autres zones.</p>
+        <span class="from">à partir de 25 € · forfaits −10&nbsp;%</span>
       </article>
-
-      <article class="card s2 rv">
-        <span class="label">Regard</span>
-        <h3>Le cil rehaussé</h3>
-        <p>Le Korean Lash Lift redresse et courbe le cil naturel pendant six à huit semaines. Associé à la teinture, il signe un regard ouvert dès le réveil.</p>
+      <article class="svc rv">
+        <span class="n">02</span>
+        <h3>Sourcils</h3>
+        <p>Épilation, restructuration, teinture, browlift, microblading, microshading et combo brows.</p>
         <span class="from">à partir de 15 €</span>
       </article>
-
-      <article class="card s3 rv">
-        <span class="label">Lèvres</span>
-        <h3>Blush Lips</h3>
-        <p>Une bouche délicatement teintée et redessinée, dont la couleur se fond dans la carnation. L'effet reste discret, jour après jour.</p>
-        <span class="from">à partir de 300 €</span>
+      <article class="svc rv">
+        <span class="n">03</span>
+        <h3>Lèvres</h3>
+        <p>Le Blush Lips ravive la couleur naturelle des lèvres et unifie leur teinte, pour un effet subtilement teinté.</p>
+        <span class="from">à partir de 250 €</span>
       </article>
-
-      <article class="card s4 rv">
-        <span class="label">Peau</span>
-        <h3>Soins du visage</h3>
-        <p>Hydraskin, carboxythérapie, méso booster et protocole Inflacure pour les peaux sensibles. Le teint retrouve sa lumière.</p>
-        <span class="from">à partir de 60 €</span>
-      </article>
-
-      <article class="card dark rv">
-        <span class="label">Consultation</span>
-        <h3>Un projet se dessine avant de se réaliser</h3>
-        <p>Avant toute prestation de maquillage semi-permanent, nous prenons le temps d'un échange : morphologie du visage, carnation, habitudes et attentes. La forme, la teinte et l'intensité sont définies ensemble — et validées par vous seule.</p>
-        <a class="btn btn-light" href="https://wa.me/33629428854" target="_blank" rel="noopener">Demander un rendez-vous</a>
+      <article class="svc rv">
+        <span class="n">04</span>
+        <h3>Cils &amp; visage</h3>
+        <p>Korean Lash Lift, teinture des cils et soins Hydraskin pour un regard ouvert et un teint lumineux.</p>
+        <span class="from">à partir de 15 €</span>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ===================== LASER ===================== -->
+<section id="laser">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Épilation laser</p>
+        <h2 class="serif">Une peau lisse,<br><em>durablement</em></h2>
+      </div>
+      <p class="lead">Chaque zone se réserve à la séance ou en forfait de huit séances, avec 10&nbsp;% de remise sur tous les forfaits.</p>
+    </div>
+
+    <div class="pillars rv">
+      <div class="pillar">
+        <b>50 €</b>
+        <span>Consultation préalable</span>
+        <small>Intégralement déduite de votre première séance ou de votre forfait.</small>
+      </div>
+      <div class="pillar">
+        <b>−10&nbsp;%</b>
+        <span>Sur tous les forfaits</span>
+        <small>Huit séances par zone, au tarif le plus doux.</small>
+      </div>
+      <div class="pillar">
+        <b>F · H</b>
+        <span>Femmes &amp; hommes</span>
+        <small>Un protocole adapté à votre peau et à votre pilosité.</small>
+      </div>
+    </div>
+
+    <div class="switch rv" role="tablist" id="switch">
+      <button class="on" role="tab" aria-selected="true" data-z="lf">Femmes</button>
+      <button role="tab" aria-selected="false" data-z="lh">Hommes</button>
+    </div>
+
+    <div class="lcols" aria-hidden="true"><span>Zone</span><span>La séance</span><span>Forfait 8 séances −10&nbsp;%</span></div>
+
+    <div class="lz on" id="lf" role="tabpanel">
+      <details open><summary>Visage<span>9 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Inter-sourcils</span><span class="u">25 €</span><span class="f"><s>200 €</s>180 €</span></div>
+          <div class="lr"><span class="z">Lèvre supérieure</span><span class="u">30 €</span><span class="f"><s>240 €</s>216 €</span></div>
+          <div class="lr"><span class="z">Menton</span><span class="u">35 €</span><span class="f"><s>280 €</s>252 €</span></div>
+          <div class="lr"><span class="z">Favoris</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Sourcils</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Nuque</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Pommettes</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Tour de cou</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Visage entier</span><span class="u">105 €</span><span class="f"><s>840 €</s>756 €</span></div>
+        </div>
+      </details>
+      <details><summary>Bras<span>4 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Mains</span><span class="u">30 €</span><span class="f"><s>240 €</s>216 €</span></div>
+          <div class="lr"><span class="z">Bras supérieurs</span><span class="u">80 €</span><span class="f"><s>640 €</s>576 €</span></div>
+          <div class="lr"><span class="z">Avant-bras et mains</span><span class="u">90 €</span><span class="f"><s>720 €</s>648 €</span></div>
+          <div class="lr"><span class="z">Bras entiers</span><span class="u">150 €</span><span class="f"><s>1 200 €</s>1 080 €</span></div>
+        </div>
+      </details>
+      <details><summary>Haut du corps<span>9 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Aréoles des seins</span><span class="u">35 €</span><span class="f"><s>280 €</s>252 €</span></div>
+          <div class="lr"><span class="z">Ligne abdominale</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Ligne ventrale</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Dos bas</span><span class="u">70 €</span><span class="f"><s>560 €</s>504 €</span></div>
+          <div class="lr"><span class="z">Fesses</span><span class="u">70 €</span><span class="f"><s>560 €</s>504 €</span></div>
+          <div class="lr"><span class="z">Ventre</span><span class="u">70 €</span><span class="f"><s>560 €</s>504 €</span></div>
+          <div class="lr"><span class="z">Dos haut</span><span class="u">100 €</span><span class="f"><s>800 €</s>720 €</span></div>
+          <div class="lr"><span class="z">Décolleté</span><span class="u">120 €</span><span class="f"><s>960 €</s>864 €</span></div>
+          <div class="lr"><span class="z">Dos entier</span><span class="u">160 €</span><span class="f"><s>1 280 €</s>1 152 €</span></div>
+        </div>
+      </details>
+      <details><summary>Maillot<span>5 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Sillon interfessier</span><span class="u">35 €</span><span class="f"><s>280 €</s>252 €</span></div>
+          <div class="lr"><span class="z">Maillot classique</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Maillot échancré</span><span class="u">70 €</span><span class="f"><s>560 €</s>504 €</span></div>
+          <div class="lr"><span class="z">Maillot brésilien</span><span class="u">85 €</span><span class="f"><s>680 €</s>612 €</span></div>
+          <div class="lr"><span class="z">Maillot intégral</span><span class="u">95 €</span><span class="f"><s>760 €</s>684 €</span></div>
+        </div>
+      </details>
+      <details><summary>Jambes<span>7 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Pieds</span><span class="u">30 €</span><span class="f"><s>240 €</s>216 €</span></div>
+          <div class="lr"><span class="z">Genoux</span><span class="u">45 €</span><span class="f"><s>360 €</s>324 €</span></div>
+          <div class="lr"><span class="z">Intérieur des cuisses</span><span class="u">80 €</span><span class="f"><s>640 €</s>576 €</span></div>
+          <div class="lr"><span class="z">Arrière des cuisses</span><span class="u">80 €</span><span class="f"><s>640 €</s>576 €</span></div>
+          <div class="lr"><span class="z">Cuisses</span><span class="u">120 €</span><span class="f"><s>960 €</s>864 €</span></div>
+          <div class="lr"><span class="z">Demi-jambes</span><span class="u">140 €</span><span class="f"><s>1 120 €</s>1 008 €</span></div>
+          <div class="lr"><span class="z">Jambes complètes</span><span class="u">250 €</span><span class="f"><s>2 000 €</s>1 800 €</span></div>
+        </div>
+      </details>
+    </div>
+    <div class="lz" id="lh" role="tabpanel">
+      <details open><summary>Visage & cou<span>10 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Inter-sourcils</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Nez</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Oreilles</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Col de chemise</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Nuque</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Pommettes</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
+          <div class="lr"><span class="z">Tour de cou</span><span class="u">65 €</span><span class="f"><s>520 €</s>468 €</span></div>
+          <div class="lr"><span class="z">Sourcils</span><span class="u">80 €</span><span class="f"><s>640 €</s>576 €</span></div>
+          <div class="lr"><span class="z">Barbe entière</span><span class="u">105 €</span><span class="f"><s>840 €</s>756 €</span></div>
+          <div class="lr"><span class="z">Visage entier</span><span class="u">115 €</span><span class="f"><s>920 €</s>828 €</span></div>
+        </div>
+      </details>
+      <details><summary>Bras<span>6 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Mains</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Aisselles</span><span class="u">60 €</span><span class="f"><s>480 €</s>432 €</span></div>
+          <div class="lr"><span class="z">Bras supérieurs</span><span class="u">90 €</span><span class="f"><s>720 €</s>648 €</span></div>
+          <div class="lr"><span class="z">Épaules</span><span class="u">100 €</span><span class="f"><s>800 €</s>720 €</span></div>
+          <div class="lr"><span class="z">Avant-bras et mains</span><span class="u">110 €</span><span class="f"><s>880 €</s>792 €</span></div>
+          <div class="lr"><span class="z">Bras entiers</span><span class="u">160 €</span><span class="f"><s>1 280 €</s>1 152 €</span></div>
+        </div>
+      </details>
+      <details><summary>Dos, torse & ventre<span>5 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Dos bas</span><span class="u">85 €</span><span class="f"><s>680 €</s>612 €</span></div>
+          <div class="lr"><span class="z">Ventre</span><span class="u">100 €</span><span class="f"><s>800 €</s>720 €</span></div>
+          <div class="lr"><span class="z">Torse</span><span class="u">125 €</span><span class="f"><s>1 000 €</s>900 €</span></div>
+          <div class="lr"><span class="z">Dos haut</span><span class="u">140 €</span><span class="f"><s>1 120 €</s>1 008 €</span></div>
+          <div class="lr"><span class="z">Dos entier</span><span class="u">200 €</span><span class="f"><s>1 600 €</s>1 440 €</span></div>
+        </div>
+      </details>
+      <details><summary>Jambes<span>5 zones</span></summary>
+        <div class="lt">
+          <div class="lr"><span class="z">Pieds</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Genoux</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
+          <div class="lr"><span class="z">Demi-jambes</span><span class="u">190 €</span><span class="f"><s>1 520 €</s>1 368 €</span></div>
+          <div class="lr"><span class="z">Cuisses</span><span class="u">200 €</span><span class="f"><s>1 600 €</s>1 440 €</span></div>
+          <div class="lr"><span class="z">Jambes complètes</span><span class="u">350 €</span><span class="f"><s>2 800 €</s>2 520 €</span></div>
+        </div>
+      </details>
+    </div>
+
+    <p class="lnote">Tarifs par zone. Le forfait comprend huit séances sur la même zone, réglées à la souscription. La consultation permet de vérifier les contre-indications et de définir le nombre de séances adapté à votre profil.</p>
+    <div class="lcta">
+      <a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver ma consultation</a>
+      <a class="link" href="tel:+33629428854">Une question ? 06 29 42 88 54</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TARIFS BEAUTÉ ===================== -->
+<section id="tarifs" class="alt">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Tarifs beauté</p>
+        <h2 class="serif">Regard, lèvres<br>&amp; visage</h2>
+      </div>
+      <p class="lead">Le prix annoncé est le prix payé. Aucun supplément n'est ajouté en cabine.</p>
+    </div>
+
+    <div class="tabs rv" id="tabs" role="tablist">
+      <button class="tab on" role="tab" data-p="p1">Sourcils</button>
+      <button class="tab" role="tab" data-p="p2">Pigmentation</button>
+      <button class="tab" role="tab" data-p="p3">Lèvres</button>
+      <button class="tab" role="tab" data-p="p4">Cils</button>
+      <button class="tab" role="tab" data-p="p5">Soins du visage</button>
+    </div>
+
+    <div class="panel on" id="p1">
+      <div class="row"><span class="name">Teinture des sourcils</span><span class="dots"></span><span class="price">15 €</span></div>
+      <div class="row"><span class="name">Restructuration seule</span><span class="dots"></span><span class="price">20 €</span></div>
+      <div class="row"><span class="name">Épilation &amp; restructuration</span><span class="dots"></span><span class="price">40 €</span></div>
+      <div class="row"><span class="name">Browlift<small>effet lifté et discipliné</small></span><span class="dots"></span><span class="price">50 €</span></div>
+      <div class="row"><span class="name">Browlift &amp; restructuration</span><span class="dots"></span><span class="price">55 €</span></div>
+      <div class="row"><span class="name">Browlift, restructuration &amp; coloration</span><span class="dots"></span><span class="price">60 €</span></div>
+    </div>
+
+    <div class="panel" id="p2">
+      <div class="row"><span class="name">Microblading<small>poil à poil, effet naturel</small></span><span class="dots"></span><span class="price">300 €</span></div>
+      <div class="row"><span class="name">Microshading<small>effet poudré</small></span><span class="dots"></span><span class="price">300 €</span></div>
+      <div class="row"><span class="name">Combo Brows<small>poil à poil &amp; poudré</small></span><span class="dots"></span><span class="price">350 €</span></div>
+      <div class="row"><span class="name">Retouche 1 à 3 mois</span><span class="dots"></span><span class="price">80 €</span></div>
+      <div class="row"><span class="name">Retouche 6 à 8 mois</span><span class="dots"></span><span class="price">130 €</span></div>
+      <div class="row"><span class="name">Retouche 10 à 12 mois</span><span class="dots"></span><span class="price">170 €</span></div>
+      <div class="row"><span class="name">Retouche 12 à 18 mois</span><span class="dots"></span><span class="price">200 €</span></div>
+    </div>
+
+    <div class="panel" id="p3">
+      <div class="row"><span class="name">Blush Lips<small>maquillage semi-permanent</small></span><span class="dots"></span><span class="price">250 €</span></div>
+      <div class="row"><span class="name">Retouche 1 à 3 mois<small>après une première séance chez Velia</small></span><span class="dots"></span><span class="price">70 €</span></div>
+      <div class="row"><span class="name">Entretien annuel</span><span class="dots"></span><span class="price">170 €</span></div>
+    </div>
+
+    <div class="panel" id="p4">
+      <div class="row"><span class="name">Teinture des cils</span><span class="dots"></span><span class="price">15 €</span></div>
+      <div class="row"><span class="name">Korean Lash Lift<small>tenue six à huit semaines</small></span><span class="dots"></span><span class="price">55 €</span></div>
+      <div class="row"><span class="name">Lash Lift &amp; teinture</span><span class="dots"></span><span class="price">60 €</span></div>
+    </div>
+
+    <div class="panel" id="p5">
+      <div class="row"><span class="name">Inflacure<small>peaux sensibles &amp; réactives</small></span><span class="dots"></span><span class="price">60 €</span></div>
+      <div class="row"><span class="name">Hydraskin<small>nettoyage en profondeur</small></span><span class="dots"></span><span class="price">80 €</span></div>
+      <div class="row"><span class="name">Hydraskin &amp; carboxythérapie</span><span class="dots"></span><span class="price">110 €</span></div>
+      <div class="row"><span class="name">Hydraskin &amp; méso booster</span><span class="dots"></span><span class="price">130 €</span></div>
+    </div>
+
+    <p class="note rv">Les prestations de maquillage semi-permanent comprennent une consultation pour définir la forme et la teinte adaptées à votre visage. Un acompte est demandé à la réservation.</p>
   </div>
 </section>
 
 <!-- ===================== GALERIE ===================== -->
 <section id="galerie">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">Réalisations</p>
-      <h2 class="display">Le travail parle<br>de lui-même</h2>
-      <p>Des résultats photographiés à l'institut, sans filtre ni retouche.</p>
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Réalisations</p>
+        <h2 class="serif">Le travail parle<br>de lui-même</h2>
+      </div>
+      <p class="lead">Des résultats photographiés à l'institut, sans filtre ni retouche.</p>
     </div>
-
-    <div class="gallery">
-      <figure class="shot g-a rv" tabindex="0">
-        <img src="images/institut.jpg" alt="Polaroids : portrait de Velia et sourcil redessiné" loading="lazy" decoding="async">
-        <figcaption><b>L'univers Velia</b><span>Sourcils redessinés</span></figcaption>
+    <div class="gallery rv">
+      <figure class="shot g-a" tabindex="0">
+        <img src="images/institut.jpg" alt="Polaroids de l'univers Velia et sourcil redessiné" loading="lazy" decoding="async">
+        <figcaption>L'univers Velia</figcaption>
       </figure>
-      <figure class="shot g-b rv" tabindex="0">
+      <figure class="shot g-b" tabindex="0">
         <img src="images/sourcils.jpg" alt="Sourcils structurés en cours de soin" loading="lazy" decoding="async">
-        <figcaption><b>Sourcils</b><span>Structure &amp; densité</span></figcaption>
+        <figcaption>Sourcils</figcaption>
       </figure>
-      <figure class="shot rv" tabindex="0">
-        <img src="images/levres-1.jpg" alt="Résultat Blush Lips, bouche repulpée et teintée" loading="lazy" decoding="async">
-        <figcaption><b>Blush Lips</b><span>Teinte fondue</span></figcaption>
+      <figure class="shot" tabindex="0">
+        <img src="images/levres-1.jpg" alt="Résultat Blush Lips, lèvres teintées" loading="lazy" decoding="async">
+        <figcaption>Blush Lips</figcaption>
       </figure>
-      <figure class="shot rv" tabindex="0">
+      <figure class="shot" tabindex="0">
         <img src="images/levres-2.jpg" alt="Résultat Blush Lips, effet naturel" loading="lazy" decoding="async">
-        <figcaption><b>Blush Lips</b><span>Effet naturel</span></figcaption>
+        <figcaption>Blush Lips</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ===================== TARIFS ===================== -->
-<section id="tarifs" class="alt">
+<!-- ===================== L'INSTITUT ===================== -->
+<section id="maison" class="alt">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">Tarifs</p>
-      <h2 class="display">Une lecture claire,<br>dès le premier rendez-vous</h2>
-      <p>Le prix annoncé est le prix payé. Aucun supplément n'est ajouté en cabine.</p>
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">L'institut</p>
+        <h2 class="serif">Un cadre doux,<br>un geste précis</h2>
+      </div>
+      <p class="lead">Une ambiance apaisante, une décoration soignée et un déroulé identique pour chaque rendez-vous.</p>
     </div>
-
-    <div class="tabs rv" id="tabs">
-      <button class="tab on" data-p="p1">Sourcils</button>
-      <button class="tab" data-p="p2">Retouches</button>
-      <button class="tab" data-p="p3">Cils</button>
-      <button class="tab" data-p="p4">Lèvres</button>
-      <button class="tab" data-p="p5">Soins du visage</button>
-    </div>
-
-    <div class="panel on" id="p1">
-      <div class="row"><span class="name">Épilation &amp; restructuration<small>avec teinture</small></span><span class="dots"></span><span class="price">40 €</span></div>
-      <div class="row"><span class="name">Restructuration seule</span><span class="dots"></span><span class="price">20 €</span></div>
-      <div class="row"><span class="name">Teinture sourcils</span><span class="dots"></span><span class="price">15 €</span></div>
-      <div class="row"><span class="name">Browlift<small>selon formule</small></span><span class="dots"></span><span class="price">50 – 60 €</span></div>
-      <div class="row"><span class="name">Microblading<small>poil à poil, effet naturel</small></span><span class="dots"></span><span class="price">350 €</span></div>
-      <div class="row"><span class="name">Microshading<small>effet poudré</small></span><span class="dots"></span><span class="price">350 €</span></div>
-      <div class="row"><span class="name">Combo Brows<span class="sig">Signature</span><small>poil à poil &amp; poudré</small></span><span class="dots"></span><span class="price">400 €</span></div>
-    </div>
-
-    <div class="panel" id="p2">
-      <div class="row"><span class="name">Retouche 1 à 3 mois<small>incluse dans le protocole initial</small></span><span class="dots"></span><span class="price">80 €</span></div>
-      <div class="row"><span class="name">Retouche 6 à 8 mois</span><span class="dots"></span><span class="price">130 €</span></div>
-      <div class="row"><span class="name">Retouche 10 à 12 mois</span><span class="dots"></span><span class="price">170 €</span></div>
-      <div class="row"><span class="name">Retouche 12 à 18 mois</span><span class="dots"></span><span class="price">250 €</span></div>
-    </div>
-
-    <div class="panel" id="p3">
-      <div class="row"><span class="name">Korean Lash Lift<small>tenue six à huit semaines</small></span><span class="dots"></span><span class="price">55 €</span></div>
-      <div class="row"><span class="name">Lash Lift &amp; teinture</span><span class="dots"></span><span class="price">60 €</span></div>
-      <div class="row"><span class="name">Teinture cils</span><span class="dots"></span><span class="price">15 €</span></div>
-    </div>
-
-    <div class="panel" id="p4">
-      <div class="row"><span class="name">Blush Lips<small>maquillage semi-permanent</small></span><span class="dots"></span><span class="price">300 €</span></div>
-      <div class="row"><span class="name">Retouche 1 à 3 mois</span><span class="dots"></span><span class="price">70 €</span></div>
-      <div class="row"><span class="name">Entretien annuel</span><span class="dots"></span><span class="price">170 €</span></div>
-    </div>
-
-    <div class="panel" id="p5">
-      <div class="row"><span class="name">Hydraskin<small>nettoyage en profondeur</small></span><span class="dots"></span><span class="price">80 €</span></div>
-      <div class="row"><span class="name">Hydraskin &amp; carboxythérapie</span><span class="dots"></span><span class="price">110 €</span></div>
-      <div class="row"><span class="name">Hydraskin &amp; méso booster</span><span class="dots"></span><span class="price">130 €</span></div>
-      <div class="row"><span class="name">Inflacure<small>peaux sensibles &amp; réactives</small></span><span class="dots"></span><span class="price">60 €</span></div>
-    </div>
-
-    <p class="note rv">Les prestations de maquillage semi-permanent comprennent la consultation, le tracé et la première retouche. Un acompte est demandé à la réservation.</p>
-  </div>
-</section>
-
-<!-- ===================== LA MAISON ===================== -->
-<section id="maison">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">La maison</p>
-      <h2 class="display">Le détail, du premier<br>au dernier geste</h2>
-      <p>Un cadre feutré, des techniques éprouvées et un déroulé identique pour chaque cliente.</p>
-    </div>
-
     <div class="rooms">
-      <div class="room rv">
-        <figure>
-          <img src="images/salon-cabine-1.jpg" alt="Cabine de maquillage semi-permanent, lumière tamisée et table de soin" loading="lazy" decoding="async">
-          <figcaption>Cabine — maquillage semi-permanent</figcaption>
-        </figure>
-      </div>
-      <div class="room rv">
-        <figure>
-          <img src="images/salon-cabine-2.jpg" alt="Cabine de soins du visage avec fauteuil et appareillage" loading="lazy" decoding="async">
-          <figcaption>Cabine — soins du visage</figcaption>
-        </figure>
-      </div>
+      <figure class="rv">
+        <img src="images/salon-cabine-1.jpg" alt="Cabine de l'institut, lumière tamisée et table de soin" loading="lazy" decoding="async">
+        <figcaption>Cabine de soins</figcaption>
+      </figure>
+      <figure class="rv">
+        <img src="images/salon-cabine-2.jpg" alt="Cabine avec fauteuil et appareillage" loading="lazy" decoding="async">
+        <figcaption>Cabine laser &amp; visage</figcaption>
+      </figure>
     </div>
-
     <div class="steps">
       <div class="step rv">
-        <span class="num">I</span>
-        <h4>L'écoute</h4>
-        <p>Morphologie, carnation, habitudes et attentes. Le tracé est dessiné devant vous et rien ne commence sans votre accord.</p>
+        <span class="n">I</span>
+        <h3>L'écoute</h3>
+        <p>Vos attentes, votre peau, vos habitudes. Rien ne commence sans votre accord.</p>
       </div>
       <div class="step rv">
-        <span class="num">II</span>
-        <h4>Le geste</h4>
-        <p>Matériel stérile à usage unique, pigments de qualité professionnelle et un travail mené sans précipitation.</p>
+        <span class="n">II</span>
+        <h3>Le geste</h3>
+        <p>Matériel à usage unique, produits professionnels et un travail mené sans précipitation.</p>
       </div>
       <div class="step rv">
-        <span class="num">III</span>
-        <h4>Le suivi</h4>
-        <p>Conseils de cicatrisation, disponibilité par message et retouche planifiée pour un résultat qui tient dans la durée.</p>
+        <span class="n">III</span>
+        <h3>Le suivi</h3>
+        <p>Conseils après la séance et rendez-vous planifiés pour un résultat qui dure.</p>
       </div>
-    </div>
-
-    <div class="credo rv">
-      <div class="rule"></div>
-      <p>Révélez votre beauté avec élégance.</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== INFOS ===================== -->
-<section id="infos" class="alt">
-  <div class="wrap">
-    <div class="contact rv">
-      <div class="c-dark">
-        <p class="eyebrow">Rendez-vous</p>
-        <h2>Nous vous<br>attendons</h2>
-        <p>Le plus simple reste un message. Velia y répond personnellement et vous propose le créneau qui vous convient.</p>
-        <a class="btn btn-light" href="https://wa.me/33629428854" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <span class="state" id="state">Chargement</span>
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <p class="eyebrow">Rendez-vous</p>
+      <h2 class="serif">Prenez soin<br>de vous</h2>
+      <p class="lead">Réservez en ligne 24h/24 sur Planity, avec confirmation immédiate. Pour toute question, Olivia vous répond par téléphone ou sur WhatsApp.</p>
+      <div class="acts">
+        <a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver sur Planity</a>
+        <a class="link" href="https://wa.me/33629428854" target="_blank" rel="noopener">WhatsApp</a>
       </div>
-
-      <div class="c-light">
-        <div class="info">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          <div><span class="k">L'institut</span><span class="v">4 Impasse du Rouat<br>31190 Auterive</span></div>
-        </div>
-        <div class="info">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
-          <div><span class="k">Téléphone</span><span class="v"><a href="tel:+33629428854">06 29 42 88 54</a></span></div>
-        </div>
-        <div class="info">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></svg>
-          <div style="flex:1">
-            <span class="k">Horaires</span>
-            <div class="hours"><span>Lundi — Samedi</span><span>9h00 — 19h00</span></div>
-            <div class="hours off"><span>Dimanche</span><span>Fermé</span></div>
-          </div>
-        </div>
+    </div>
+    <div class="infos rv">
+      <div class="info"><span class="k">Adresse</span><span class="v">4 Impasse du Rouat<br>31190 Auterive</span></div>
+      <div class="info"><span class="k">Téléphone</span><span class="v"><a href="tel:+33629428854">06 29 42 88 54</a></span></div>
+      <div class="info">
+        <span class="k">Horaires</span>
+        <div class="hours"><span>Lundi — Samedi</span><span>9h00 — 19h00</span></div>
+        <div class="hours off"><span>Dimanche</span><span>Fermé</span></div>
+        <span class="state" id="state">Horaires</span>
       </div>
     </div>
   </div>
@@ -721,20 +714,15 @@ footer{padding:2.1rem 0;border-top:var(--rule)}
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="foot">
-      <a class="foot-mark" href="#top">
-        <span class="emblem"><img src="images/favicon-512.png" alt="" width="512" height="512" loading="lazy"></span>
-        <span class="foot-name"><b>Velia</b>Brows &amp; Beauty</span>
-      </a>
-      <nav class="foot-links">
-        <a href="#prestations">Prestations</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#infos">Nous trouver</a>
-        <a href="https://wa.me/33629428854" target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-      <p class="foot-meta">© <span id="yr"></span> Velia Brows &amp; Beauty · Auterive</p>
-    </div>
+  <div class="wrap foot">
+    <a class="logo" href="#top">Velia</a>
+    <nav class="foot-links">
+      <a href="#laser">Épilation laser</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Planity</a>
+    </nav>
+    <p class="foot-meta">© <span id="yr"></span> Velia · Auterive</p>
   </div>
 </footer>
 
@@ -746,30 +734,37 @@ footer{padding:2.1rem 0;border-top:var(--rule)}
   </div>
 </div>
 
-<a class="fab" href="https://wa.me/33629428854" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-  <span>Rendez-vous</span>
-</a>
-
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* bandeau */
-const words = ['Microblading','Combo Brows','Microshading','Korean Lash Lift','Blush Lips','Browlift','Hydraskin','Carboxythérapie','Méso Booster'];
-const strip = document.getElementById('strip');
-const line = () => { const i = document.createElement('i'); i.innerHTML = words.join('</i><i>'); return i; };
-strip.append(line(), line());
+/* bandeau offre de lancement : disparaît automatiquement après le 31 décembre 2026 */
+(function(){
+  const ticker = document.getElementById('ticker');
+  if (new Date() >= new Date('2027-01-01T00:00:00+01:00')) { ticker.remove(); return; }
+  const msg = ['Offre de lancement','−10&nbsp;% sur votre première séance d\'épilation laser','Du 16 novembre au 31 décembre','Forfaits 8 séances : −10&nbsp;% toute l\'année'];
+  const track = document.getElementById('tickerTrack');
+  const line = () => { const s = document.createElement('div'); s.style.display = 'flex'; s.innerHTML = '<span>' + msg.join('</span><span>') + '</span>'; return s; };
+  track.append(line(), line(), line(), line());
+})();
 
 /* en-tête */
 const hdr = document.getElementById('hdr');
-addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30), {passive:true});
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40), {passive:true});
 
 /* menu mobile */
-const links = document.getElementById('links');
-document.getElementById('burger').onclick = () => links.classList.toggle('open');
-links.onclick = e => { if (e.target.tagName === 'A') links.classList.remove('open'); };
+const links = document.getElementById('links'), burger = document.getElementById('burger');
+burger.onclick = () => burger.setAttribute('aria-expanded', links.classList.toggle('open'));
+links.onclick = e => { if (e.target.tagName === 'A') { links.classList.remove('open'); burger.setAttribute('aria-expanded', false); } };
 
-/* tarifs */
+/* laser : femmes / hommes */
+document.getElementById('switch').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  document.querySelectorAll('#switch button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+  document.querySelectorAll('.lz').forEach(z => z.classList.toggle('on', z.id === b.dataset.z));
+});
+
+/* tarifs beauté */
 document.getElementById('tabs').addEventListener('click', e => {
   const t = e.target.closest('.tab');
   if (!t) return;
@@ -818,12 +813,12 @@ document.getElementById('tabs').addEventListener('click', e => {
 const io = new IntersectionObserver(entries => {
   entries.forEach((en, i) => {
     if (en.isIntersecting) {
-      en.target.style.transitionDelay = (i * 90) + 'ms';
+      en.target.style.transitionDelay = (i * 80) + 'ms';
       en.target.classList.add('in');
       io.unobserve(en.target);
     }
   });
-}, {threshold:.1, rootMargin:'0px 0px -70px'});
+}, {threshold:.1, rootMargin:'0px 0px -60px'});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
 /* ouvert / fermé, heure de Paris */
@@ -831,7 +826,7 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
   const el = document.getElementById('state');
   const now = new Date(new Date().toLocaleString('en-US', {timeZone:'Europe/Paris'}));
   const d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
-  el.textContent = (d !== 0 && h >= 9 && h < 19) ? 'Ouvert en ce moment' : 'Fermé — écrivez-nous';
+  el.textContent = (d !== 0 && h >= 9 && h < 19) ? 'Ouvert en ce moment' : 'Fermé actuellement';
 })();
 </script>
 </body>
