@@ -181,6 +181,7 @@ summary{
   font-family:var(--serif);font-size:1.6rem;font-weight:400;
 }
 summary::-webkit-details-marker{display:none}
+summary .k{font-style:normal;font-family:"Jost",sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper);background:var(--brown);padding:.3rem .6rem;align-self:center}
 summary span{font-family:"Jost",sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 summary::after{content:"+";margin-left:auto;font-family:"Jost",sans-serif;font-size:1.3rem;font-weight:300;color:var(--brown);transition:transform .3s}
 details[open] summary::after{transform:rotate(45deg)}
@@ -322,7 +323,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
   .lr .f{text-align:right}
   .lr .u::before{content:"Séance ";font-size:.78rem}
   .lr .f s{display:none}
-  .lr .f::before{content:"Forfait 8 séances ";font-family:"Jost",sans-serif;font-size:.78rem;color:var(--muted)}
+  .lr .f::before{content:"Forfait laser 8 séances ";font-family:"Jost",sans-serif;font-size:.78rem;color:var(--muted)}
   summary{font-size:1.4rem}
 
   .gallery{grid-template-columns:1fr 1fr;grid-template-rows:72vw 52vw 52vw;gap:.6rem}
@@ -485,7 +486,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
       <div class="lcols" aria-hidden="true"><span>Zone</span><span>La séance</span><span>Forfait laser 8 séances −10&nbsp;%</span></div>
 
     <div class="lz on" id="lf" role="tabpanel">
-      <details open><summary>Visage<span>9 zones</span></summary>
+      <details open><summary><i class="k">Épilation laser</i>Visage<span>9 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Inter-sourcils</span><span class="u">25 €</span><span class="f"><s>200 €</s>180 €</span></div>
           <div class="lr"><span class="z">Lèvre supérieure</span><span class="u">30 €</span><span class="f"><s>240 €</s>216 €</span></div>
@@ -498,7 +499,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Visage entier</span><span class="u">105 €</span><span class="f"><s>840 €</s>756 €</span></div>
         </div>
       </details>
-      <details><summary>Bras<span>4 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Bras<span>4 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Mains</span><span class="u">30 €</span><span class="f"><s>240 €</s>216 €</span></div>
           <div class="lr"><span class="z">Bras supérieurs</span><span class="u">80 €</span><span class="f"><s>640 €</s>576 €</span></div>
@@ -506,7 +507,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Bras entiers</span><span class="u">150 €</span><span class="f"><s>1 200 €</s>1 080 €</span></div>
         </div>
       </details>
-      <details><summary>Haut du corps<span>9 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Haut du corps<span>9 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Aréoles des seins</span><span class="u">35 €</span><span class="f"><s>280 €</s>252 €</span></div>
           <div class="lr"><span class="z">Ligne abdominale</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
@@ -519,7 +520,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Dos entier</span><span class="u">160 €</span><span class="f"><s>1 280 €</s>1 152 €</span></div>
         </div>
       </details>
-      <details><summary>Maillot<span>5 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Maillot<span>5 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Sillon interfessier</span><span class="u">35 €</span><span class="f"><s>280 €</s>252 €</span></div>
           <div class="lr"><span class="z">Maillot classique</span><span class="u">50 €</span><span class="f"><s>400 €</s>360 €</span></div>
@@ -528,7 +529,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Maillot intégral</span><span class="u">95 €</span><span class="f"><s>760 €</s>684 €</span></div>
         </div>
       </details>
-      <details><summary>Jambes<span>7 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Jambes<span>7 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Pieds</span><span class="u">30 €</span><span class="f"><s>240 €</s>216 €</span></div>
           <div class="lr"><span class="z">Genoux</span><span class="u">45 €</span><span class="f"><s>360 €</s>324 €</span></div>
@@ -541,7 +542,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
       </details>
     </div>
     <div class="lz" id="lh" role="tabpanel">
-      <details open><summary>Visage & cou<span>10 zones</span></summary>
+      <details open><summary><i class="k">Épilation laser</i>Visage & cou<span>10 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Inter-sourcils</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
           <div class="lr"><span class="z">Nez</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
@@ -555,7 +556,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Visage entier</span><span class="u">115 €</span><span class="f"><s>920 €</s>828 €</span></div>
         </div>
       </details>
-      <details><summary>Bras<span>6 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Bras<span>6 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Mains</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
           <div class="lr"><span class="z">Aisselles</span><span class="u">60 €</span><span class="f"><s>480 €</s>432 €</span></div>
@@ -565,7 +566,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Bras entiers</span><span class="u">160 €</span><span class="f"><s>1 280 €</s>1 152 €</span></div>
         </div>
       </details>
-      <details><summary>Dos, torse & ventre<span>5 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Dos, torse & ventre<span>5 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Dos bas</span><span class="u">85 €</span><span class="f"><s>680 €</s>612 €</span></div>
           <div class="lr"><span class="z">Ventre</span><span class="u">100 €</span><span class="f"><s>800 €</s>720 €</span></div>
@@ -574,7 +575,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
           <div class="lr"><span class="z">Dos entier</span><span class="u">200 €</span><span class="f"><s>1 600 €</s>1 440 €</span></div>
         </div>
       </details>
-      <details><summary>Jambes<span>5 zones</span></summary>
+      <details><summary><i class="k">Épilation laser</i>Jambes<span>5 zones</span></summary>
         <div class="lt">
           <div class="lr"><span class="z">Pieds</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
           <div class="lr"><span class="z">Genoux</span><span class="u">40 €</span><span class="f"><s>320 €</s>288 €</span></div>
