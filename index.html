@@ -28,7 +28,7 @@
   --sand:#EDE5DB;    /* sections alternées, teinte du logo */
   --ink:#3A2E26;     /* texte principal */
   --brown:#6F5A45;   /* brun du logo */
-  --muted:#9A8877;   /* texte secondaire */
+  --muted:#80705F;   /* texte secondaire */
   --line:rgba(58,46,38,.14);
   --dark:#3A2E26;
   --maxw:1180px;
@@ -52,7 +52,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;paddin
 .wrap{width:min(100% - 2.5rem,var(--maxw));margin-inline:auto}
 
 /* ---------- typographie ---------- */
-.svc .n,.pillar b,.step .n,.lr .f,.row .price{font-variant-numeric:lining-nums tabular-nums}
+.offer b,.card li b,.step .n,.lr .f,.row .price{font-variant-numeric:lining-nums tabular-nums}
 .serif{font-family:var(--serif);font-variant-numeric:lining-nums;font-weight:300;line-height:1.08;letter-spacing:-.005em;text-wrap:balance}
 .serif em{font-style:italic}
 .eyebrow{
@@ -128,69 +128,80 @@ section{padding:clamp(5rem,10vw,8.5rem) 0}
 .about p:last-child{margin-bottom:0}
 .about .sign{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--brown);margin-top:1.8rem}
 
-/* ---------- prestations ---------- */
-.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-.svc{padding:2.2rem 2rem 0 0;display:flex;flex-direction:column}
-.svc+.svc{padding-left:2rem;border-left:1px solid var(--line)}
-.svc .n{font-family:var(--serif);font-size:.95rem;color:var(--muted)}
-.svc h3{font-family:var(--serif);font-weight:300;font-size:1.9rem;line-height:1.15;margin:1.4rem 0 .8rem}
-.svc p{margin:0;color:var(--muted);font-size:.93rem}
-.svc .from{margin-top:1.6rem;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brown)}
+/* ---------- prestations : trois cartes ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.card{display:flex;flex-direction:column;background:var(--paper);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.card:hover{transform:translateY(-4px)}
+.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--sand)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.card:hover .ph img{transform:scale(1.04)}
+.card .body{padding:1.9rem 1.9rem 2.1rem;display:flex;flex-direction:column;flex:1}
+.card .tag{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brown)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:2.2rem;line-height:1.1;margin:.5rem 0 .8rem}
+.card p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.7}
+.card ul{list-style:none;margin:1.5rem 0 0;padding:0;border-top:1px solid var(--line)}
+.card li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.card li b{font-weight:400;color:var(--brown);white-space:nowrap}
+.card .more{margin-top:auto;padding-top:1.7rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:center;gap:.6rem}
+.card .more::after{content:"→";font-size:.9rem;transition:transform .3s}
+.card:hover .more::after{transform:translateX(4px)}
 
-/* ---------- laser ---------- */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:clamp(3rem,6vw,4.5rem)}
-.pillar{padding:2rem 2rem 2rem 0}
-.pillar+.pillar{padding-left:2rem;border-left:1px solid var(--line)}
-.pillar b{display:block;font-family:var(--serif);font-weight:300;font-size:2.4rem;line-height:1;color:var(--brown)}
-.pillar span{display:block;margin-top:.9rem;font-size:.92rem;color:var(--ink)}
-.pillar small{display:block;color:var(--muted);font-size:.85rem;line-height:1.6;margin-top:.3rem}
+/* ---------- tarifs : un onglet par prestation ---------- */
+.ttabs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.ttab{padding:1.15rem 1rem;font-family:var(--serif);font-size:1.5rem;line-height:1.2;transition:background .3s,color .3s}
+.ttab+.ttab{border-left:1px solid var(--ink)}
+.ttab small{display:block;font-family:"Jost",sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:.35rem}
+.ttab:hover{background:var(--sand)}
+.ttab.on{background:var(--ink);color:var(--paper)}
+.ttab.on small{color:rgba(247,243,238,.7)}
+.tp{display:none}
+.tp.on{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0}}
 
-.switch{display:inline-flex;border:1px solid var(--ink);margin-bottom:2.4rem}
+.offer{display:grid;grid-template-columns:repeat(3,1fr);background:var(--sand);margin-bottom:2.8rem}
+.offer div{padding:1.7rem 1.9rem}
+.offer div+div{border-left:1px solid var(--line)}
+.offer b{display:block;font-family:var(--serif);font-weight:400;font-size:2.2rem;line-height:1;color:var(--brown)}
+.offer span{display:block;margin-top:.7rem;font-size:.97rem}
+.offer small{display:block;color:var(--muted);font-size:.86rem;line-height:1.55;margin-top:.25rem}
+
+.switch{display:inline-flex;border:1px solid var(--ink);margin-bottom:2.2rem}
 .switch button{padding:.8rem 1.9rem;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;transition:background .3s,color .3s}
 .switch button.on{background:var(--ink);color:var(--paper)}
 
-.lcols,.lr{display:grid;grid-template-columns:1fr 8rem 13rem;gap:1rem;align-items:baseline}
-.lcols{padding:0 0 .9rem;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.lcols,.lr{display:grid;grid-template-columns:1fr 8rem 14rem;gap:1rem;align-items:baseline}
+.lcols{padding:0 0 .9rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .lcols span:not(:first-child),.lr .u,.lr .f{text-align:right}
 .lz{display:none}
 .lz.on{display:block;animation:fade .5s ease}
-@keyframes fade{from{opacity:0}}
 details{border-top:1px solid var(--line)}
 .lz details:last-child{border-bottom:1px solid var(--line)}
 summary{
-  list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:1rem;padding:1.4rem 0;
-  font-family:var(--serif);font-size:1.6rem;font-weight:300;
+  list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:1rem;padding:1.3rem 0;
+  font-family:var(--serif);font-size:1.6rem;font-weight:400;
 }
 summary::-webkit-details-marker{display:none}
 summary span{font-family:"Jost",sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 summary::after{content:"+";margin-left:auto;font-family:"Jost",sans-serif;font-size:1.3rem;font-weight:300;color:var(--brown);transition:transform .3s}
 details[open] summary::after{transform:rotate(45deg)}
 .lt{padding:0 0 1.4rem}
-.lr{padding:.8rem 0;border-top:1px dotted var(--line)}
+.lr{padding:.85rem 0;border-top:1px dotted var(--line)}
 .lr:first-child{border-top:0}
-.lr .z{font-size:.97rem}
-.lr .u{font-variant-numeric:lining-nums tabular-nums;color:var(--muted)}
-.lr .f{font-family:var(--serif);font-size:1.3rem;color:var(--brown);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.lr .z{font-size:1rem}
+.lr .u{font-variant-numeric:lining-nums tabular-nums}
+.lr .f{font-family:var(--serif);font-size:1.35rem;color:var(--brown);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
 .lr .f s{font-family:"Jost",sans-serif;font-size:.8rem;color:var(--muted);margin-right:.8rem;text-decoration-thickness:1px}
-.lnote{margin-top:2.2rem;font-size:.85rem;color:var(--muted);max-width:70ch}
+.lnote{margin-top:2.2rem;font-size:.88rem;color:var(--muted);max-width:70ch}
 .lcta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:2.4rem}
 
-/* ---------- tarifs beauté ---------- */
-.tabs{display:flex;gap:2.2rem;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:1rem}
-.tab{
-  padding:0 0 1rem;margin-bottom:-1px;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--muted);border-bottom:1px solid transparent;transition:color .3s,border-color .3s;
-}
-.tab:hover{color:var(--ink)}
-.tab.on{color:var(--ink);border-bottom-color:var(--ink)}
-.panel{display:none}
-.panel.on{display:grid;grid-template-columns:1fr 1fr;gap:0 5rem;animation:fade .5s ease}
-.row{display:flex;align-items:baseline;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
-.row .name{font-size:.97rem}
-.row .name small{display:block;font-size:.8rem;color:var(--muted)}
-.row .dots{flex:1}
-.row .price{font-family:var(--serif);font-size:1.35rem;color:var(--brown);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
-.note{margin-top:2.4rem;font-size:.85rem;color:var(--muted);max-width:64ch}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem 5rem;align-items:start}
+.group h3{font-family:var(--serif);font-weight:400;font-size:1.75rem;line-height:1.2;margin:0;padding-bottom:.9rem;border-bottom:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:1.4rem;align-items:baseline;padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.row .name{font-size:1rem}
+.row .name small{display:block;font-size:.84rem;color:var(--muted);margin-top:.1rem}
+.row .time{font-size:.84rem;color:var(--muted);white-space:nowrap}
+.row .price{font-family:var(--serif);font-size:1.4rem;color:var(--brown);white-space:nowrap;min-width:4.6rem;text-align:right}
+.note{margin-top:2.6rem;font-size:.88rem;color:var(--muted);max-width:64ch}
 
 /* ---------- galerie ---------- */
 .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,min(22vw,250px));gap:1rem}
@@ -255,9 +266,25 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
+  .nav .btn{display:none}
+  .burger{display:flex}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:.2rem;
+    padding:1.2rem 1.25rem 1.6rem;background:var(--paper);border-bottom:1px solid var(--line);
+    box-shadow:0 24px 30px -24px rgba(58,46,38,.35);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:.76rem;opacity:1;padding:.75rem 0}
+  .link{padding-top:.7rem}
+  .foot-links a{padding:.5rem 0}
+  .offer div{padding:1.2rem 1.3rem}
+  .offer b{font-size:1.8rem}
+  .nav-links .m{display:block;margin-top:.4rem;color:var(--brown)}
   .head,.about,.contact-grid{grid-template-columns:1fr}
-  .services{grid-template-columns:1fr 1fr}
-  .panel.on{grid-template-columns:1fr}
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .card{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+  .card .ph{aspect-ratio:auto;min-height:100%}
+  .groups{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr;grid-template-rows:min(60vw,360px) min(40vw,240px) min(40vw,240px)}
   .g-a{grid-column:span 2;grid-row:auto}
   .g-b{grid-row:span 2}
@@ -266,23 +293,25 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
   html{scroll-padding-top:64px}
   .nav{height:64px}
   .logo{font-size:1.7rem}
-  .nav .btn{display:none}
-  .burger{display:flex}
-  .nav-links{
-    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:1.4rem;
-    padding:1.8rem 1.25rem 2rem;background:var(--paper);border-bottom:1px solid var(--line);
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{font-size:.74rem;opacity:1}
-  .nav-links .m{display:block;margin-top:.4rem;color:var(--brown)}
   .hero-img{aspect-ratio:4/3}
   .hero-cta{flex-direction:column;gap:1.4rem}
   .hero-cta .btn,.lcta .btn,.acts .btn{width:100%}
   .btn{white-space:normal;text-align:center}
 
-  .services,.pillars,.steps{grid-template-columns:1fr}
-  .svc,.svc+.svc,.pillar,.pillar+.pillar,.step,.step+.step{padding:1.8rem 0;border-left:0}
-  .svc+.svc,.pillar+.pillar,.step+.step{border-top:1px solid var(--line)}
+  .steps{grid-template-columns:1fr}
+  .step,.step+.step{padding:1.8rem 0;border-left:0}
+  .step+.step{border-top:1px solid var(--line)}
+  .card{display:flex}
+  .card .ph{aspect-ratio:4/3;min-height:0}
+  .card .body{padding:1.5rem 1.4rem 1.8rem}
+  .card h3{font-size:2rem}
+  .ttab{font-size:1.15rem;padding:1rem .3rem}
+  .ttab small{display:none}
+  .offer{grid-template-columns:1fr}
+  .offer div+div{border-left:0;border-top:1px solid var(--line)}
+  .row{grid-template-columns:1fr auto;gap:.15rem 1rem}
+  .row .time{grid-row:2;grid-column:1}
+  .row .price{grid-row:1/3;grid-column:2;align-self:center}
 
   .switch{display:flex}
   .switch button{flex:1;padding-inline:1rem}
@@ -293,16 +322,15 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
   .lr .f{text-align:right}
   .lr .u::before{content:"Séance ";font-size:.78rem}
   .lr .f s{display:none}
-  .lr .f::before{content:"8 séances ";font-family:"Jost",sans-serif;font-size:.78rem;color:var(--muted)}
+  .lr .f::before{content:"Forfait 8 séances ";font-family:"Jost",sans-serif;font-size:.78rem;color:var(--muted)}
   summary{font-size:1.4rem}
 
-  .tabs{gap:1.4rem}
   .gallery{grid-template-columns:1fr 1fr;grid-template-rows:72vw 52vw 52vw;gap:.6rem}
   .rooms{grid-template-columns:1fr;gap:1.8rem}
   .foot{flex-direction:column;align-items:flex-start}
   .foot-links{margin-left:0;gap:1.2rem}
 }
-@media (min-width:721px){.nav-links .m{display:none}}
+@media (min-width:961px){.nav-links .m{display:none}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
   .js .rv{opacity:1;transform:none}
@@ -321,8 +349,8 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
     <nav class="nav">
       <a href="#top" class="logo" aria-label="Velia, retour en haut">Velia</a>
       <div class="nav-links" id="links">
-        <a href="#laser">Épilation laser</a>
-        <a href="#tarifs">Beauté</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#tarifs" data-go="t-laser">Tarifs</a>
         <a href="#galerie">Réalisations</a>
         <a href="#maison">L'institut</a>
         <a href="#contact">Contact</a>
@@ -344,7 +372,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
     <p class="lead rv">Une peau lisse, des sourcils dessinés avec justesse, des lèvres ravivées. Des prestations personnalisées, dans un cadre doux et apaisant.</p>
     <div class="hero-cta rv">
       <a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Prendre rendez-vous</a>
-      <a class="link" href="#laser">Forfaits laser −10&nbsp;%</a>
+      <a class="link" href="#tarifs" data-go="t-laser">Forfaits laser −10&nbsp;%</a>
     </div>
   </div>
   <div class="wrap hero-img rv">
@@ -373,68 +401,88 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
     <div class="head rv">
       <div>
         <p class="eyebrow">Prestations</p>
-        <h2 class="serif">Trois savoir-faire</h2>
+        <h2 class="serif">Nos prestations</h2>
       </div>
-      <p class="lead">Du laser au maquillage semi-permanent, chaque prestation est adaptée à votre peau et au résultat souhaité.</p>
+      <p class="lead">Trois savoir-faire, chacun adapté à votre peau et au résultat souhaité. Touchez une prestation pour voir ses tarifs.</p>
     </div>
-    <div class="services">
-      <article class="svc rv">
-        <span class="n">01</span>
-        <h3>Épilation laser</h3>
-        <p>Femmes et hommes : visage, aisselles, bras, jambes, maillot, dos et bien d'autres zones.</p>
-        <span class="from">à partir de 25 € · forfaits −10&nbsp;%</span>
-      </article>
-      <article class="svc rv">
-        <span class="n">02</span>
-        <h3>Sourcils</h3>
-        <p>Épilation, restructuration, teinture, browlift, microblading, microshading et combo brows.</p>
-        <span class="from">à partir de 15 €</span>
-      </article>
-      <article class="svc rv">
-        <span class="n">03</span>
-        <h3>Lèvres</h3>
-        <p>Le Blush Lips ravive la couleur naturelle des lèvres et unifie leur teinte, pour un effet subtilement teinté.</p>
-        <span class="from">à partir de 250 €</span>
-      </article>
+    <div class="cards">
+      <a class="card rv" href="#tarifs" data-go="t-laser">
+        <div class="ph"><img src="images/salon-cabine-2.jpg" alt="Cabine d'épilation laser de l'institut" loading="lazy" decoding="async"></div>
+        <div class="body">
+          <span class="tag">Femmes &amp; hommes</span>
+          <h3>Épilation laser</h3>
+          <p>Visage, bras, jambes, maillot, dos et bien d'autres zones, avec un protocole adapté à votre peau.</p>
+          <ul>
+            <li>À la séance<b>dès 25 €</b></li>
+            <li>Forfait 8 séances<b>−10&nbsp;%</b></li>
+            <li>Consultation<b>50 €, déduite</b></li>
+          </ul>
+          <span class="more">Voir les tarifs laser</span>
+        </div>
+      </a>
+      <a class="card rv" href="#tarifs" data-go="t-sourcils">
+        <div class="ph"><img src="images/sourcils.jpg" alt="Sourcils structurés en cours de soin" loading="lazy" decoding="async"></div>
+        <div class="body">
+          <span class="tag">Beauté du regard</span>
+          <h3>Sourcils</h3>
+          <p>Épilation, restructuration, teinture et browlift, ou pigmentation pour des sourcils dessinés durablement.</p>
+          <ul>
+            <li>Teinture, restructuration<b>dès 15 €</b></li>
+            <li>Browlift<b>dès 50 €</b></li>
+            <li>Microblading, Combo Brows<b>dès 300 €</b></li>
+          </ul>
+          <span class="more">Voir les tarifs sourcils</span>
+        </div>
+      </a>
+      <a class="card rv" href="#tarifs" data-go="t-levres">
+        <div class="ph"><img src="images/levres-1.jpg" alt="Résultat Blush Lips, lèvres teintées" loading="lazy" decoding="async"></div>
+        <div class="body">
+          <span class="tag">Maquillage semi-permanent</span>
+          <h3>Lèvres</h3>
+          <p>Le Blush Lips ravive la couleur naturelle des lèvres et unifie leur teinte, pour un effet subtilement teinté.</p>
+          <ul>
+            <li>Blush Lips<b>250 €</b></li>
+            <li>Retouche 1 à 3 mois<b>70 €</b></li>
+            <li>Entretien annuel<b>170 €</b></li>
+          </ul>
+          <span class="more">Voir les tarifs lèvres</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ===================== LASER ===================== -->
-<section id="laser">
+<!-- ===================== TARIFS ===================== -->
+<section id="tarifs">
   <div class="wrap">
     <div class="head rv">
       <div>
-        <p class="eyebrow">Épilation laser</p>
-        <h2 class="serif">Une peau lisse,<br><em>durablement</em></h2>
+        <p class="eyebrow">Tarifs</p>
+        <h2 class="serif">Des prix clairs</h2>
       </div>
-      <p class="lead">Chaque zone se réserve à la séance ou en forfait de huit séances, avec 10&nbsp;% de remise sur tous les forfaits laser.</p>
+      <p class="lead">Le prix annoncé est le prix payé. Aucun supplément n'est ajouté en cabine.</p>
     </div>
 
-    <div class="pillars rv">
-      <div class="pillar">
-        <b>50 €</b>
-        <span>Consultation préalable</span>
-        <small>Intégralement déduite de votre première séance ou de votre forfait.</small>
-      </div>
-      <div class="pillar">
-        <b>−10&nbsp;%</b>
-        <span>Sur tous les forfaits laser</span>
-        <small>Huit séances par zone, uniquement pour l'épilation laser.</small>
-      </div>
-      <div class="pillar">
-        <b>F · H</b>
-        <span>Femmes &amp; hommes</span>
-        <small>Un protocole adapté à votre peau et à votre pilosité.</small>
-      </div>
+    <div class="ttabs rv" role="tablist" id="ttabs">
+      <button class="ttab on" role="tab" aria-selected="true" data-t="t-laser">Épilation laser<small>Séance &amp; forfaits</small></button>
+      <button class="ttab" role="tab" aria-selected="false" data-t="t-sourcils">Sourcils<small>Soins &amp; pigmentation</small></button>
+      <button class="ttab" role="tab" aria-selected="false" data-t="t-levres">Lèvres<small>Blush Lips</small></button>
     </div>
 
-    <div class="switch rv" role="tablist" id="switch">
-      <button class="on" role="tab" aria-selected="true" data-z="lf">Femmes</button>
-      <button role="tab" aria-selected="false" data-z="lh">Hommes</button>
-    </div>
+    <!-- ---------- épilation laser ---------- -->
+    <div class="tp on" id="t-laser" role="tabpanel">
+      <div class="offer">
+        <div><b>−10&nbsp;%</b><span>Forfait laser 8 séances</span><small>Sur chaque zone, uniquement pour l'épilation laser.</small></div>
+        <div><b>50 €</b><span>Consultation préalable</span><small>Intégralement déduite de votre première séance ou de votre forfait.</small></div>
+        <div><b>F · H</b><span>Femmes &amp; hommes</span><small>Un protocole adapté à votre peau et à votre pilosité.</small></div>
+      </div>
 
-    <div class="lcols" aria-hidden="true"><span>Zone</span><span>La séance</span><span>Forfait 8 séances −10&nbsp;%</span></div>
+      <div class="switch" role="tablist" id="switch">
+        <button class="on" role="tab" aria-selected="true" data-z="lf">Femmes</button>
+        <button role="tab" aria-selected="false" data-z="lh">Hommes</button>
+      </div>
+
+      <div class="lcols" aria-hidden="true"><span>Zone</span><span>La séance</span><span>Forfait laser 8 séances −10&nbsp;%</span></div>
 
     <div class="lz on" id="lf" role="tabpanel">
       <details open><summary>Visage<span>9 zones</span></summary>
@@ -537,57 +585,56 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
       </details>
     </div>
 
-    <p class="lnote">Tarifs par zone. Le forfait comprend huit séances sur la même zone, réglées à la souscription. La consultation permet de vérifier les contre-indications et de définir le nombre de séances adapté à votre profil.</p>
-    <div class="lcta">
-      <a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver ma consultation</a>
-      <a class="link" href="tel:+33629428854">Une question ? 06 29 42 88 54</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TARIFS BEAUTÉ ===================== -->
-<section id="tarifs" class="alt">
-  <div class="wrap">
-    <div class="head rv">
-      <div>
-        <p class="eyebrow">Tarifs beauté</p>
-        <h2 class="serif">Sourcils<br>&amp; lèvres</h2>
+      <p class="lnote">Tarifs par zone. Le forfait comprend huit séances sur la même zone, réglées à la souscription. La consultation permet de vérifier les contre-indications et de définir le nombre de séances adapté à votre profil.</p>
+      <div class="lcta">
+        <a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver ma consultation</a>
+        <a class="link" href="tel:+33629428854">Une question ? 06 29 42 88 54</a>
       </div>
-      <p class="lead">Le prix annoncé est le prix payé. Aucun supplément n'est ajouté en cabine.</p>
     </div>
 
-    <div class="tabs rv" id="tabs" role="tablist">
-      <button class="tab on" role="tab" data-p="p1">Sourcils</button>
-      <button class="tab" role="tab" data-p="p2">Pigmentation</button>
-      <button class="tab" role="tab" data-p="p3">Lèvres</button>
+    <!-- ---------- sourcils ---------- -->
+    <div class="tp" id="t-sourcils" role="tabpanel">
+      <div class="groups">
+        <div class="group">
+          <h3>Beauté des sourcils</h3>
+          <div class="row"><span class="name">Teinture des sourcils</span><span class="time">15 min</span><span class="price">15 €</span></div>
+          <div class="row"><span class="name">Restructuration seule</span><span class="time">15 min</span><span class="price">20 €</span></div>
+          <div class="row"><span class="name">Épilation &amp; restructuration</span><span class="time">30 min</span><span class="price">40 €</span></div>
+          <div class="row"><span class="name">Browlift<small>effet lifté et discipliné</small></span><span class="time">45 min</span><span class="price">50 €</span></div>
+          <div class="row"><span class="name">Browlift &amp; restructuration</span><span class="time">50 min</span><span class="price">55 €</span></div>
+          <div class="row"><span class="name">Browlift, restructuration &amp; coloration</span><span class="time">1 h</span><span class="price">60 €</span></div>
+        </div>
+        <div class="group">
+          <h3>Pigmentation des sourcils</h3>
+          <div class="row"><span class="name">Microblading<small>poil à poil, effet naturel</small></span><span class="time">2 h</span><span class="price">300 €</span></div>
+          <div class="row"><span class="name">Microshading<small>effet poudré</small></span><span class="time">2 h</span><span class="price">300 €</span></div>
+          <div class="row"><span class="name">Combo Brows<small>poil à poil &amp; poudré</small></span><span class="time">2 h 15</span><span class="price">350 €</span></div>
+        </div>
+        <div class="group">
+          <h3>Retouches pigmentation</h3>
+          <div class="row"><span class="name">Retouche 1 à 3 mois</span><span class="time">1 h</span><span class="price">80 €</span></div>
+          <div class="row"><span class="name">Retouche 6 à 8 mois</span><span class="time">1 h 15</span><span class="price">130 €</span></div>
+          <div class="row"><span class="name">Retouche 10 à 12 mois</span><span class="time">1 h 30</span><span class="price">170 €</span></div>
+          <div class="row"><span class="name">Retouche 12 à 18 mois</span><span class="time">1 h 30</span><span class="price">200 €</span></div>
+        </div>
+      </div>
+      <p class="note">Les prestations de pigmentation comprennent une consultation pour définir la forme et la teinte adaptées à votre visage. Un acompte est demandé à la réservation.</p>
+      <div class="lcta"><a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver sur Planity</a></div>
     </div>
 
-    <div class="panel on" id="p1">
-      <div class="row"><span class="name">Teinture des sourcils</span><span class="dots"></span><span class="price">15 €</span></div>
-      <div class="row"><span class="name">Restructuration seule</span><span class="dots"></span><span class="price">20 €</span></div>
-      <div class="row"><span class="name">Épilation &amp; restructuration</span><span class="dots"></span><span class="price">40 €</span></div>
-      <div class="row"><span class="name">Browlift<small>effet lifté et discipliné</small></span><span class="dots"></span><span class="price">50 €</span></div>
-      <div class="row"><span class="name">Browlift &amp; restructuration</span><span class="dots"></span><span class="price">55 €</span></div>
-      <div class="row"><span class="name">Browlift, restructuration &amp; coloration</span><span class="dots"></span><span class="price">60 €</span></div>
+    <!-- ---------- lèvres ---------- -->
+    <div class="tp" id="t-levres" role="tabpanel">
+      <div class="groups">
+        <div class="group">
+          <h3>Pigmentation des lèvres</h3>
+          <div class="row"><span class="name">Blush Lips<small>maquillage semi-permanent</small></span><span class="time">1 h 45</span><span class="price">250 €</span></div>
+          <div class="row"><span class="name">Retouche 1 à 3 mois<small>après une première séance chez Velia</small></span><span class="time">1 h</span><span class="price">70 €</span></div>
+          <div class="row"><span class="name">Entretien annuel</span><span class="time">1 h 30</span><span class="price">170 €</span></div>
+        </div>
+      </div>
+      <p class="note">La couleur et l'intensité sont choisies avec vous, en fonction de vos lèvres et du résultat souhaité. Un acompte est demandé à la réservation.</p>
+      <div class="lcta"><a class="btn fill" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Réserver sur Planity</a></div>
     </div>
-
-    <div class="panel" id="p2">
-      <div class="row"><span class="name">Microblading<small>poil à poil, effet naturel</small></span><span class="dots"></span><span class="price">300 €</span></div>
-      <div class="row"><span class="name">Microshading<small>effet poudré</small></span><span class="dots"></span><span class="price">300 €</span></div>
-      <div class="row"><span class="name">Combo Brows<small>poil à poil &amp; poudré</small></span><span class="dots"></span><span class="price">350 €</span></div>
-      <div class="row"><span class="name">Retouche 1 à 3 mois</span><span class="dots"></span><span class="price">80 €</span></div>
-      <div class="row"><span class="name">Retouche 6 à 8 mois</span><span class="dots"></span><span class="price">130 €</span></div>
-      <div class="row"><span class="name">Retouche 10 à 12 mois</span><span class="dots"></span><span class="price">170 €</span></div>
-      <div class="row"><span class="name">Retouche 12 à 18 mois</span><span class="dots"></span><span class="price">200 €</span></div>
-    </div>
-
-    <div class="panel" id="p3">
-      <div class="row"><span class="name">Blush Lips<small>maquillage semi-permanent</small></span><span class="dots"></span><span class="price">250 €</span></div>
-      <div class="row"><span class="name">Retouche 1 à 3 mois<small>après une première séance chez Velia</small></span><span class="dots"></span><span class="price">70 €</span></div>
-      <div class="row"><span class="name">Entretien annuel</span><span class="dots"></span><span class="price">170 €</span></div>
-    </div>
-
-    <p class="note rv">Les prestations de maquillage semi-permanent comprennent une consultation pour définir la forme et la teinte adaptées à votre visage. Un acompte est demandé à la réservation.</p>
   </div>
 </section>
 
@@ -693,8 +740,8 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
   <div class="wrap foot">
     <a class="logo" href="#top">Velia</a>
     <nav class="foot-links">
-      <a href="#laser">Épilation laser</a>
-      <a href="#tarifs">Tarifs</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#tarifs" data-go="t-laser">Tarifs</a>
       <a href="#contact">Contact</a>
       <a href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Planity</a>
     </nav>
@@ -740,13 +787,16 @@ document.getElementById('switch').addEventListener('click', e => {
   document.querySelectorAll('.lz').forEach(z => z.classList.toggle('on', z.id === b.dataset.z));
 });
 
-/* tarifs beauté */
-document.getElementById('tabs').addEventListener('click', e => {
-  const t = e.target.closest('.tab');
-  if (!t) return;
-  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
-  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === t.dataset.p));
+/* tarifs : un onglet par prestation, ouvert aussi depuis les cartes et le menu */
+const showTab = id => {
+  document.querySelectorAll('.ttab').forEach(x => { x.classList.toggle('on', x.dataset.t === id); x.setAttribute('aria-selected', x.dataset.t === id); });
+  document.querySelectorAll('.tp').forEach(p => p.classList.toggle('on', p.id === id));
+};
+document.getElementById('ttabs').addEventListener('click', e => {
+  const b = e.target.closest('.ttab');
+  if (b) showTab(b.dataset.t);
 });
+document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', () => showTab(a.dataset.go)));
 
 /* visionneuse */
 (function(){
