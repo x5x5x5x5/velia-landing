@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Velia — Institut de beauté &amp; épilation laser · Auterive</title>
-<meta name="description" content="Velia, institut de beauté à Auterive : épilation laser femmes et hommes avec forfaits 8 séances à −10&nbsp;%, browlift, microblading, combo brows, Blush Lips et soins du visage.">
+<meta name="description" content="Velia, institut de beauté à Auterive : épilation laser femmes et hommes avec forfaits 8 séances à −10&nbsp;%, browlift, microblading, combo brows et Blush Lips.">
 <meta name="theme-color" content="#F7F3EE">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Velia — Institut de beauté &amp; épilation laser · Auterive">
-<meta property="og:description" content="Épilation laser, sourcils, lèvres et soins du visage à Auterive. Forfaits 8 séances à −10&nbsp;%.">
+<meta property="og:description" content="Épilation laser, sourcils et lèvres à Auterive. Forfaits 8 séances à −10&nbsp;%.">
 <meta property="og:image" content="https://x5x5x5x5.github.io/velia-landing/images/og.jpg">
 <meta property="og:url" content="https://x5x5x5x5.github.io/velia-landing/">
 <meta name="twitter:card" content="summary_large_image">
@@ -129,7 +129,7 @@ section{padding:clamp(5rem,10vw,8.5rem) 0}
 .about .sign{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--brown);margin-top:1.8rem}
 
 /* ---------- prestations ---------- */
-.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
 .svc{padding:2.2rem 2rem 0 0;display:flex;flex-direction:column}
 .svc+.svc{padding-left:2rem;border-left:1px solid var(--line)}
 .svc .n{font-family:var(--serif);font-size:.95rem;color:var(--muted)}
@@ -257,8 +257,6 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
 @media (max-width:960px){
   .head,.about,.contact-grid{grid-template-columns:1fr}
   .services{grid-template-columns:1fr 1fr}
-  .svc:nth-child(3){padding-left:0;border-left:0}
-  .svc:nth-child(n+3){margin-top:2.4rem;border-top:1px solid var(--line)}
   .panel.on{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr;grid-template-rows:min(60vw,360px) min(40vw,240px) min(40vw,240px)}
   .g-a{grid-column:span 2;grid-row:auto}
@@ -285,7 +283,6 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
   .services,.pillars,.steps{grid-template-columns:1fr}
   .svc,.svc+.svc,.pillar,.pillar+.pillar,.step,.step+.step{padding:1.8rem 0;border-left:0}
   .svc+.svc,.pillar+.pillar,.step+.step{border-top:1px solid var(--line)}
-  .svc:nth-child(n+3){margin-top:0}
 
   .switch{display:flex}
   .switch button{flex:1;padding-inline:1rem}
@@ -376,7 +373,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
     <div class="head rv">
       <div>
         <p class="eyebrow">Prestations</p>
-        <h2 class="serif">Quatre savoir-faire</h2>
+        <h2 class="serif">Trois savoir-faire</h2>
       </div>
       <p class="lead">Du laser au maquillage semi-permanent, chaque prestation est adaptée à votre peau et au résultat souhaité.</p>
     </div>
@@ -398,12 +395,6 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
         <h3>Lèvres</h3>
         <p>Le Blush Lips ravive la couleur naturelle des lèvres et unifie leur teinte, pour un effet subtilement teinté.</p>
         <span class="from">à partir de 250 €</span>
-      </article>
-      <article class="svc rv">
-        <span class="n">04</span>
-        <h3>Cils &amp; visage</h3>
-        <p>Korean Lash Lift, teinture des cils et soins Hydraskin pour un regard ouvert et un teint lumineux.</p>
-        <span class="from">à partir de 15 €</span>
       </article>
     </div>
   </div>
@@ -560,7 +551,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
     <div class="head rv">
       <div>
         <p class="eyebrow">Tarifs beauté</p>
-        <h2 class="serif">Regard, lèvres<br>&amp; visage</h2>
+        <h2 class="serif">Sourcils<br>&amp; lèvres</h2>
       </div>
       <p class="lead">Le prix annoncé est le prix payé. Aucun supplément n'est ajouté en cabine.</p>
     </div>
@@ -569,8 +560,6 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
       <button class="tab on" role="tab" data-p="p1">Sourcils</button>
       <button class="tab" role="tab" data-p="p2">Pigmentation</button>
       <button class="tab" role="tab" data-p="p3">Lèvres</button>
-      <button class="tab" role="tab" data-p="p4">Cils</button>
-      <button class="tab" role="tab" data-p="p5">Soins du visage</button>
     </div>
 
     <div class="panel on" id="p1">
@@ -596,19 +585,6 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
       <div class="row"><span class="name">Blush Lips<small>maquillage semi-permanent</small></span><span class="dots"></span><span class="price">250 €</span></div>
       <div class="row"><span class="name">Retouche 1 à 3 mois<small>après une première séance chez Velia</small></span><span class="dots"></span><span class="price">70 €</span></div>
       <div class="row"><span class="name">Entretien annuel</span><span class="dots"></span><span class="price">170 €</span></div>
-    </div>
-
-    <div class="panel" id="p4">
-      <div class="row"><span class="name">Teinture des cils</span><span class="dots"></span><span class="price">15 €</span></div>
-      <div class="row"><span class="name">Korean Lash Lift<small>tenue six à huit semaines</small></span><span class="dots"></span><span class="price">55 €</span></div>
-      <div class="row"><span class="name">Lash Lift &amp; teinture</span><span class="dots"></span><span class="price">60 €</span></div>
-    </div>
-
-    <div class="panel" id="p5">
-      <div class="row"><span class="name">Inflacure<small>peaux sensibles &amp; réactives</small></span><span class="dots"></span><span class="price">60 €</span></div>
-      <div class="row"><span class="name">Hydraskin<small>nettoyage en profondeur</small></span><span class="dots"></span><span class="price">80 €</span></div>
-      <div class="row"><span class="name">Hydraskin &amp; carboxythérapie</span><span class="dots"></span><span class="price">110 €</span></div>
-      <div class="row"><span class="name">Hydraskin &amp; méso booster</span><span class="dots"></span><span class="price">130 €</span></div>
     </div>
 
     <p class="note rv">Les prestations de maquillage semi-permanent comprennent une consultation pour définir la forme et la teinte adaptées à votre visage. Un acompte est demandé à la réservation.</p>
@@ -663,7 +639,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line)}
       </figure>
       <figure class="rv">
         <img src="images/salon-cabine-2.jpg" alt="Cabine avec fauteuil et appareillage" loading="lazy" decoding="async">
-        <figcaption>Cabine laser &amp; visage</figcaption>
+        <figcaption>Cabine laser</figcaption>
       </figure>
     </div>
     <div class="steps">
