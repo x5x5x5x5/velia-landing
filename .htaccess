@@ -14,21 +14,20 @@ AddDefaultCharset UTF-8
 
 
 # ---------------------------------------------------------------------------
-#  1. HTTPS + domaine unique  —  À ACTIVER UNE FOIS LE CERTIFICAT SSL DÉLIVRÉ
+#  1. HTTPS + domaine unique (actif)
 # ---------------------------------------------------------------------------
-#  Tant que le certificat SSL n'est pas actif dans l'espace client OVH,
-#  ces règles rendraient le site inaccessible. Une fois que
-#  https://velialaser.com s'ouvre correctement dans le navigateur,
-#  retirer le "#" devant les 5 lignes ci-dessous.
-#
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTP:X-Forwarded-Proto} !https
-#   RewriteCond %{HTTPS} !=on
-#   RewriteRule ^ https://velialaser.com%{REQUEST_URI} [R=301,L]
-#   RewriteCond %{HTTP_HOST} ^www\.velialaser\.com$ [NC]
-#   RewriteRule ^ https://velialaser.com%{REQUEST_URI} [R=301,L]
-# </IfModule>
+#  Certificat SSL actif depuis le 15/11/2026 : les redirections sont en place.
+#  Toute visite en http:// ou sur www. est renvoyee en 301 vers
+#  https://velialaser.com, l'adresse declaree comme canonique.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://velialaser.com%{REQUEST_URI} [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www\.velialaser\.com$ [NC]
+  RewriteRule ^ https://velialaser.com%{REQUEST_URI} [R=301,L]
+</IfModule>
 
 
 # ---------------------------------------------------------------------------
