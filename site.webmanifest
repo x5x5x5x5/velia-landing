@@ -1,0 +1,24 @@
+{
+  "name": "Velia — Institut de beauté & épilation laser",
+  "short_name": "Velia",
+  "description": "Épilation laser, sourcils et lèvres à Auterive.",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F3EE",
+  "theme_color": "#F7F3EE",
+  "icons": [
+    {
+      "src": "images/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

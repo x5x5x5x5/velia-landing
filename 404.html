@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — Velia</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#F7F3EE">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/favicon-180.png">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 600;font-display:swap;
+  src:url(fonts/cormorant-garamond-latin.woff2) format('woff2');}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 500;font-display:swap;
+  src:url(fonts/jost-latin.woff2) format('woff2');}
+
+:root{
+  --paper:#F7F3EE;
+  --ink:#3A2E26;
+  --brown:#6F5A45;
+  --muted:#80705F;
+  --serif:"Cormorant Garamond",Didot,Georgia,serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;background:var(--paper);color:var(--ink);
+  font-family:"Jost",system-ui,sans-serif;font-weight:300;line-height:1.75;
+  display:grid;place-items:center;padding:2rem;text-align:center;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.logo{
+  font-family:var(--serif);font-weight:400;font-size:2rem;letter-spacing:.06em;
+  color:var(--brown);display:inline-block;margin-bottom:3.5rem;
+}
+.code{
+  font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 1.2rem;
+}
+h1{
+  font-family:var(--serif);font-weight:300;line-height:1.1;letter-spacing:-.01em;
+  font-size:clamp(2.4rem,6vw,4rem);margin:0 0 1.4rem;
+}
+p.lead{color:var(--muted);max-width:42ch;margin:0 auto 2.8rem}
+.acts{display:flex;gap:1.6rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:1.05rem 2.1rem;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  transition:background .4s ease,border-color .4s ease;
+}
+.btn:hover{background:var(--brown);border-color:var(--brown)}
+.link{
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brown);
+  border-bottom:1px solid rgba(111,90,69,.4);padding-bottom:.25rem;transition:border-color .4s;
+}
+.link:hover{border-color:var(--brown)}
+:focus-visible{outline:1px solid var(--brown);outline-offset:4px}
+</style>
+</head>
+<body>
+  <main>
+    <a class="logo" href="/">Velia</a>
+    <p class="code">Erreur 404</p>
+    <h1>Cette page<br>n’existe pas</h1>
+    <p class="lead">Le lien est peut-être incomplet ou la page a été déplacée. Retrouvez les prestations et les tarifs sur la page d’accueil.</p>
+    <div class="acts">
+      <a class="btn" href="/">Retour à l’accueil</a>
+      <a class="link" href="https://www.planity.com/velia-31190-auterive" target="_blank" rel="noopener">Prendre rendez-vous</a>
+    </div>
+  </main>
+</body>
+</html>
